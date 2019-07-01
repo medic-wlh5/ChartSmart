@@ -29,7 +29,9 @@ module.exports = {
 	patientRegister: async (req, res) => {},
 	doctorLogin: async (req, res) => {},
 	patientLogin: async (req, res) => {},
-	updateUser: async (req, res) => {},
+	updateUser: async (req, res) => {
+
+	},
 	logout: (req, res) => {
 		req.session.destroy();
 		res.sendStatus(200);

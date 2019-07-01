@@ -1,6 +1,6 @@
 const bcrypt = require('bcryptjs');
 module.exports = {
-	doctorRegister: async (req, res) => {},
+    doctorRegister: async (req, res) => {},
 	patientRegister: async (req, res) => {},
 	doctorLogin: async (req, res) => {},
 	patientLogin: async (req, res) => {},

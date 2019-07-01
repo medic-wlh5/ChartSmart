@@ -21,7 +21,11 @@ export default class DocAuth extends Component {
     }
 
     onSubmit = () => {
-        axios.post('/auth/doctorregister').then(res => res.data)
+        axios.post('/auth/doctorregister', {first_name, last_name, email, password, pin, office}).then(res => {
+            this.props.history.push('/home')
+        }).catch(err => {
+            console.log(err)
+        })
     }
 
 

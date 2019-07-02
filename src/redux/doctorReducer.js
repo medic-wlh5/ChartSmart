@@ -1,1 +1,3 @@
-// doctorReducer
+const initialState = {
+    
+}

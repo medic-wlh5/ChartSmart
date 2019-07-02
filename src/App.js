@@ -1,12 +1,12 @@
 import React from 'react';
 import './App.css';
-import {HashRouter} from 'react-router-dom'
-// import router from './router'
+import {HashRouter} from 'react-router-dom';
+import routes from './routes';
 
 function App() {
   return (
     <HashRouter>
-      {/* {router} */}
+      {routes}
     </HashRouter>
   );
 }

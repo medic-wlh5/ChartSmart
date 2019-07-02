@@ -3,7 +3,7 @@
 // import { withRouter } from 'react-router-dom'
 // import {connect} from 'react-redux';
 
-// class LoginForm extends Component {
+// class PatientLogin extends Component {
 //     constructor(){
 //         super()
 //         this.state = {

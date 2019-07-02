@@ -1,19 +1,18 @@
 const initialState = {
-	id: '',
+	id: null,
 	first_name: '',
 	last_name: '',
 	email: '',
-	password: '',
 	office: '',
 	pin: '',
 };
 
-const REGISTER_DOCTOR = 'REGISTER_DOCTOR';
+const UPDATE_DOCTOR = 'UPDATE_DOCTOR';
 const CLEAR_DOCTOR = 'CLEAR_DOCTOR';
 
-export function registerDoctor(doctor) {
+export function updateDoctor(doctor) {
 	return {
-		type: REGISTER_DOCTOR,
+		type: UPDATE_DOCTOR,
 		payload: doctor,
 	};
 }
@@ -26,7 +25,8 @@ export function clearDoctor() {
 
 function reducer(state = initialState, action) {
 	switch (action.type) {
-		case REGISTER_DOCTOR:
+		case UPDATE_DOCTOR:
+			console.log(action.payload);
 			const {
 				id,
 				first_name,
@@ -36,6 +36,7 @@ function reducer(state = initialState, action) {
 				office,
 				pin,
 			} = action.payload;
+			
 			return { id, first_name, last_name, email, password, office, pin };
 		case CLEAR_DOCTOR:
 			return { ...initialState };

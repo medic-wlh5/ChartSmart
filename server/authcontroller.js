@@ -81,7 +81,11 @@ module.exports = {
 		if (authenticated) {
 			session.doctor = {
 				id: doctorFound[0].id,
+				first_name: doctorFound[0].first_name,
+				last_name: doctorFound[0].last_name,
 				email: doctorFound[0].email,
+				office: doctorFound[0].office,
+				pin: doctorFound[0].pin,
 			};
 			res.status(200).send(session.doctor);
 		} else {

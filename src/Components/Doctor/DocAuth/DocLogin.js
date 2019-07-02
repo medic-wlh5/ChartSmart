@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-import { clearDoctor } from '../../../redux/doctorReducer';
+import { updateDoctor } from '../../../redux/doctorReducer';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 
@@ -19,12 +19,13 @@ class DocLogin extends Component {
 		});
 	};
 
-	onSubmit = e => {
+	handleDoctorLogin = e => {
 		e.preventDefault();
 		const { email, password } = this.state;
 		axios
 			.post('/auth/doctorlogin', { email, password })
 			.then(res => {
+				this.props.updateDoctor(res.data);
 				this.props.history.push('/doctordashboard');
 			})
 			.catch(err => {
@@ -35,7 +36,7 @@ class DocLogin extends Component {
 	render() {
 		return (
 			<div>
-				<form onSubmit={this.onSubmit}>
+				<form onSubmit={this.handleDoctorLogin}>
 					<input
 						type='email'
 						name='email'
@@ -48,7 +49,7 @@ class DocLogin extends Component {
 						placeholder='password'
 						onChange={this.handleChange}
 					/>
-					<button>Login</button>
+					<button >Login</button>
 				</form>
 				<Link to='/doctorregister'>
 					<button>Register</button>
@@ -64,5 +65,5 @@ function mapStateToProps(reduxState) {
 
 export default connect(
 	mapStateToProps,
-	{ clearDoctor },
+	{ updateDoctor },
 )(DocLogin);

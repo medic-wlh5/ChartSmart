@@ -1,6 +1,7 @@
-import { createStore } from 'redux';
+import { createStore, combineReducers } from 'redux';
 import patientReducer from './patientReducer';
 import doctorReducer from './doctorReducer';
+
 
 const rootReducer = combineReducers({
     patient: patientReducer,
@@ -9,4 +10,3 @@ const rootReducer = combineReducers({
 
 
 export default createStore(rootReducer)
-

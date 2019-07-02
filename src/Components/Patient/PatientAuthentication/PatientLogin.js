@@ -1,7 +1,10 @@
 import React, { Component } from 'react'
 import axios from 'axios'
-// import { withRouter } from 'react-router-dom'
+import { withRouter } from 'react-router-dom'
 import {connect} from 'react-redux';
+import {updateUser} from '../../../redux/patientReducer'
+import {Link} from 'react-router-dom'
+
 
 class PatientLogin extends Component {
     constructor(){
@@ -15,21 +18,29 @@ class PatientLogin extends Component {
     handlePatientLogin = (e) => {
         e.preventDefault()
         const {email, password} = this.state
-        axios.post('/auth/patientLogin', {email, password}).then((res) => {
-            const {id, email, first_name, last_name} = res.data
-            this.props.login({id, email, first_name, last_name})
-            this.props.history.push('/home')
+        axios.post('/auth/patientlogin', {email, password}).then((res) => {
+            console.log(res.data)
+            this.props.updateUser(res.data)
+            this.props.history.push('/patientdashboard')
+            console.log(this.props.initialState)
         }).catch((err) => {
             console.log(err)
         })
-        e.target.email.value = ''
-        e.target.password.value = ''
+        this.setState({email: '', password: ''})
+
+    }
+
+    handleLoginInfoUpdate = (e) => {
+        this.setState({
+            [e.target.name]: e.target.value
+        })
     }
 
     render() {
+        
         return (
             <>
-                <form className='login_fields' onSubmit={this.handleUserLogin}>
+                <form className='login_fields'>
                     <input
                         type='text'
                         name='email'
@@ -42,7 +53,11 @@ class PatientLogin extends Component {
                         placeholder='password'
                         onChange={this.handleLoginInfoUpdate}
                     />
-                    <button>Submit</button>
+                    <button onClick={this.handlePatientLogin}>Login</button>
+
+                    <Link to='/patientregister'>
+                    <button>Need an Account?</button>
+                    </Link>
 
 
                 </form>
@@ -53,6 +68,4 @@ class PatientLogin extends Component {
 
 const mapStateToProps = state => state;
 
-export default (connect(mapStateToProps)(PatientLogin));
-
-// export default withRouter(connect(mapStateToProps, {login})(LoginForm));
+export default withRouter(connect(mapStateToProps, {updateUser})(PatientLogin));

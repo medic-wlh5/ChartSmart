@@ -32,6 +32,5 @@ app.post(`/auth/doctorregister`, auth_ctrl.doctorRegister);
 app.post(`/auth/patientregister`, auth_ctrl.patientRegister);
 app.post(`/auth/doctorlogin`, auth_ctrl.doctorLogin);
 app.post('/auth/patientlogin', auth_ctrl.patientLogin);
-app.put('./auth/updateUser', auth_ctrl.updateUser);
 app.get('/auth/logout', auth_ctrl.logout);
 app.get('/api/doctor/:id', doc_ctrl.getAllPatients);

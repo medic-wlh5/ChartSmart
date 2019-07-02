@@ -8,15 +8,17 @@ import DocRegister from './Components/Doctor/DocAuth/DocRegister';
 import PatientRegister from './Components/Patient/PatientAuthentication/PatientRegister';
 import DocDash from './Components/Doctor/DocDash/DocDash';
 import PatDash from './Components/Patient/PatDash/PatDash';
+import NewVisit from './Components/Doctor/NewVisit/NewVisit';
 
 export default (
-    <Switch>
-        <Route exact path="/" component={Home} />
-        <Route path="/doctorlogin" component={DocLogin} />
-        <Route path="/patientlogin" component={PatientLogin} />
-        <Route path="/doctorregister" component={DocRegister} />
-        <Route path="/patientregister" component={PatientRegister} />
-        <Route path="/doctordashboard" component={DocDash} />
-        <Route path="/patientdashboard" component={PatDash} />
-    </Switch>
-)
+	<Switch>
+		<Route exact path='/' component={Home} />
+		<Route path='/doctorlogin' component={DocLogin} />
+		<Route path='/patientlogin' component={PatientLogin} />
+		<Route path='/doctorregister' component={DocRegister} />
+		<Route path='/patientregister' component={PatientRegister} />
+		<Route path='/doctordashboard' component={DocDash} />
+		<Route path='/patientdashboard' component={PatDash} />
+		<Route path='/newvisit' component={NewVisit} />
+	</Switch>
+);

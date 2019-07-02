@@ -1,38 +1,42 @@
-import React, { Component } from "react";
-import { clearDoctor } from "../../../redux/doctorReducer";
-import { connect } from "react-redux";
-import { Link } from "react-router-dom";
-import axios from "axios";
+import React, { Component } from 'react';
+import { clearDoctor } from '../../../redux/doctorReducer';
+import { connect } from 'react-redux';
+import { Link } from 'react-router-dom';
+import axios from 'axios';
 
 class DocDash extends Component {
-  constructor() {
+	constructor() {
     super();
-  }
+    this.state={}
+	}
 
-  handleLogout = () => {
-    this.props.clearDoctor();
-    axios.get("/auth/logout").catch(err => {
-      console.log(err);
-    });
-  };
+	handleLogout = () => {
+		this.props.clearDoctor();
+		axios.get('/auth/logout').catch(err => {
+			console.log(err);
+		});
+	};
 
-  render() {
-    return (
-      <div>
-        <h1>DocDash</h1>
-        <Link to="/">
-          <button onClick={this.handleLogout}>Logout</button>
-        </Link>
-      </div>
-    );
-  }
+	render() {
+		return (
+			<div>
+				<h1>DocDash</h1>
+				<Link to='/'>
+					<button onClick={this.handleLogout}>Logout</button>
+				</Link>
+				<Link to='/newvisit'>
+					<button>New Visit</button>
+				</Link>
+			</div>
+		);
+	}
 }
 
 function mapStateToProps(reduxState) {
-  return reduxState;
+	return reduxState;
 }
 
 export default connect(
-  mapStateToProps,
-  { clearDoctor }
+	mapStateToProps,
+	{ clearDoctor },
 )(DocDash);

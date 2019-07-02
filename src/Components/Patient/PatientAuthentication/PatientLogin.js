@@ -22,7 +22,7 @@ class PatientLogin extends Component {
             console.log(res.data)
             this.props.updateUser(res.data)
             this.props.history.push('/patientdashboard')
-            console.log(this.props.state)
+            console.log(this.props.initialState)
         }).catch((err) => {
             console.log(err)
         })

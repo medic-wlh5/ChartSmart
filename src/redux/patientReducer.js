@@ -15,11 +15,15 @@ export function updateUser(user){
     }
 }
 
-export default function reducer(state = initialState, action){
+function reducer(state = initialState, action){
     switch (action.type){
         case UPDATE_USER:
+        console.log(action.payload)
         const {first_name, last_name, email, dob, id} = action.payload
-        return {...state, first_name, last_name, email, dob, id}
+        return {first_name, last_name, email, dob, id}
+        console.log(state)
         default: return state
     }
 }
+
+export default reducer

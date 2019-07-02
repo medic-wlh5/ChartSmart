@@ -20,10 +20,8 @@ class PatientLogin extends Component {
 		axios
 			.post('/auth/patientlogin', { email, password })
 			.then(res => {
-				console.log(res.data);
 				this.props.updateUser(res.data);
 				this.props.history.push('/patientdashboard');
-				console.log(this.props.initialState);
 			})
 			.catch(err => {
 				console.log(err);

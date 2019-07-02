@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-import { registerDoctor } from '../../../redux/doctorReducer';
+import { updateDoctor } from '../../../redux/doctorReducer';
 import { connect } from 'react-redux';
 
 class DocRegister extends Component {
@@ -36,7 +36,7 @@ class DocRegister extends Component {
 				office,
 			})
 			.then(res => {
-				this.props.registerDoctor(res.data);
+				this.props.updateDoctor(res.data);
 				this.props.history.push('/doctordashboard');
 			})
 			.catch(err => {
@@ -97,5 +97,5 @@ function mapStateToProps(reduxState) {
 
 export default connect(
 	mapStateToProps,
-	{ registerDoctor },
+	{ updateDoctor },
 )(DocRegister);

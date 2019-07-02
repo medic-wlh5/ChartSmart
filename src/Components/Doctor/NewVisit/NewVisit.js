@@ -20,7 +20,7 @@ class NewVisit extends Component {
 			.catch(err => console.log(err));
 	}
 	render() {
-    console.log(this.state);
+		console.log(this.state.patients);
 		return (
 			<div>
 				<p>NewVisit</p>

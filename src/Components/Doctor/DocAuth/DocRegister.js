@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import axios from 'axios';
+// import axios from 'axios';
 
-export default class DocAuth extends Component {
+export default class DocRegister extends Component {
     constructor() {
         super()
         this.state = {
@@ -20,13 +20,13 @@ export default class DocAuth extends Component {
         })
     }
 
-    onSubmit = () => {
-        axios.post('/auth/doctorregister', {first_name, last_name, email, password, pin, office}).then(res => {
-            this.props.history.push('/home')
-        }).catch(err => {
-            console.log(err)
-        })
-    }
+    // onSubmit = () => {
+    //     axios.post('/auth/doctorregister', {first_name, last_name, email, password, pin, office}).then(res => {
+    //         this.props.history.push('/home')
+    //     }).catch(err => {
+    //         console.log(err)
+    //     })
+    // }
 
 
     render() {

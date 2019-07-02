@@ -1,8 +1,8 @@
 import React, { Component } from 'react'
 import axios from 'axios'
-import {withRouter} from 'react-router-dom'
+// import {withRouter} from 'react-router-dom'
 
-class RegisterForm extends Component {
+class PatientRegister extends Component {
     constructor(){
         super()
         this.state = {
@@ -85,4 +85,4 @@ class RegisterForm extends Component {
         )
     }
 }
-export default withRouter(RegisterForm)
+export default PatientRegister

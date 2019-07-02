@@ -19,10 +19,8 @@ class PatientLogin extends Component {
         e.preventDefault()
         const {email, password} = this.state
         axios.post('/auth/patientlogin', {email, password}).then((res) => {
-            console.log(res.data)
             this.props.updateUser(res.data)
             this.props.history.push('/patientdashboard')
-            console.log(this.props.initialState)
         }).catch((err) => {
             console.log(err)
         })

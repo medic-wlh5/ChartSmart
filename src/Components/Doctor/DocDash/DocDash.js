@@ -5,9 +5,6 @@ import { Link } from "react-router-dom";
 import axios from "axios";
 
 class DocDash extends Component {
-  constructor() {
-    super();
-  }
 
   handleLogout = () => {
     this.props.clearDoctor();

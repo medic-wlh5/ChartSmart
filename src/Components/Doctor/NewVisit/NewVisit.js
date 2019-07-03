@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import { connect } from 'react-redux';
+import {getVisitId} from '../../../redux/doctorReducer'
 
 class NewVisit extends Component {
 	constructor(props) {
@@ -72,9 +73,8 @@ class NewVisit extends Component {
 		const {date, caseId}= this.state
 		axios.post('/api/newvisit', {date, caseId})
 		.then((res)=>{
-			this.setState({
-				visitId: res.data.visit_id
-			})
+			console.log(res.data.visit_id)
+			this.props.getVisitId(res.data.visit_id)
 			// this.props.history.push('/newchart')
 		})
 		.catch(err =>{
@@ -84,7 +84,7 @@ class NewVisit extends Component {
 	}
 
 	render() {
-		console.log(this.state)
+		console.log(this.props.doctor)
 		const mappedSuggestions = this.state.suggestions.map((suggestion) => {
 			return (
 				<div>
@@ -134,4 +134,4 @@ function mapStateToProps(reduxState) {
 	return reduxState;
 }
 
-export default connect(mapStateToProps)(NewVisit);
+export default connect(mapStateToProps, {getVisitId})(NewVisit);

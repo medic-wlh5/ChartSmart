@@ -1,0 +1,39 @@
+.register_fields{
+   display: flex;
+   flex-direction: column;
+   height: 600px;
+   width: 400px;
+   border: 5px solid #5FBBFF;
+   border-radius: 3%;
+   margin: auto
+}
+
+.register_fields > input{
+    text-decoration: none;
+    display: inline-block;
+    border-radius: 3px;
+    font-size: 15px;
+    padding: 0.5rem 0;
+    margin: auto;
+    width: 11rem;
+    background: transparent;
+    color: black;
+    border: 2px solid black;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+.register_fields > button{
+    text-decoration: none;
+    display: inline-block;
+    border-radius: 3px;
+    font-size: 15px;
+    padding: 0.5rem 0;
+    margin: auto;
+    width: 11rem;
+    background: transparent;
+    color: black;
+    border: 2px solid pink;
+    text-transform: uppercase;
+    font-weight: bold;
+}

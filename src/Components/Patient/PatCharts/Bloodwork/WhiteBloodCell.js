@@ -90,6 +90,28 @@ export default class LineGraph extends Component {
             },
             options: {
                 //Customize chart options
+                title:{
+                    dispaly: true,
+                    text: 'White Blood Cell Count',
+                    fontSize: 25
+                },
+                legend:{
+                    position: 'right',
+                    labels:{
+                        fontColor: '#000'
+                    }
+                },
+                layout:{
+                    padding:{
+                        left: 50,
+                        right: 0,
+                        bottom: 0,
+                        top: 0
+                    }
+                },
+                tooltips:{
+                    enabled: true
+                }
             }
         });
 

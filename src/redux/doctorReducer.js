@@ -26,7 +26,6 @@ export function clearDoctor() {
 function reducer(state = initialState, action) {
 	switch (action.type) {
 		case UPDATE_DOCTOR:
-			console.log(action.payload);
 			const {
 				id,
 				first_name,

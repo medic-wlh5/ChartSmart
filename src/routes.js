@@ -9,6 +9,7 @@ import PatientRegister from './Components/Patient/PatientAuthentication/PatientR
 import DocDash from './Components/Doctor/DocDash/DocDash';
 import PatDash from './Components/Patient/PatDash/PatDash';
 import NewVisit from './Components/Doctor/NewVisit/NewVisit';
+import PatChartWrapper from './Components/Patient/PatCharts/PatChartWrapper';
 
 export default (
 	<Switch>
@@ -20,5 +21,6 @@ export default (
 		<Route path='/doctordashboard' component={DocDash} />
 		<Route path='/patientdashboard' component={PatDash} />
 		<Route path='/newvisit' component={NewVisit} />
+		<Route path='/patchart' component={PatChartWrapper} />
 	</Switch>
 );

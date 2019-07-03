@@ -10,6 +10,7 @@ import DocDash from './Components/Doctor/DocDash/DocDash';
 import PatDash from './Components/Patient/PatDash/PatDash';
 import NewVisit from './Components/Doctor/NewVisit/NewVisit';
 import PatChartWrapper from './Components/Patient/PatCharts/PatChartWrapper';
+import NewChart from './Components/Doctor/NewChart/NewChart'
 
 export default (
 	<Switch>
@@ -22,5 +23,6 @@ export default (
 		<Route path='/patientdashboard' component={PatDash} />
 		<Route path='/newvisit' component={NewVisit} />
 		<Route path='/patchart' component={PatChartWrapper} />
+		<Route path='/newchart' component={NewChart} />
 	</Switch>
 );

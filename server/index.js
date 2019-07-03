@@ -34,3 +34,5 @@ app.post(`/auth/doctorlogin`, auth_ctrl.doctorLogin);
 app.post('/auth/patientlogin', auth_ctrl.patientLogin);
 app.get('/auth/logout', auth_ctrl.logout);
 app.get('/api/doctor/:id', doc_ctrl.getAllPatients);
+app.get('/api/getcase/:docId', doc_ctrl.getCaseId)
+app.post('/api/newvisit', doc_ctrl.createVisit)

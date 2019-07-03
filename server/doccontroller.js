@@ -18,10 +18,23 @@ module.exports = {
 
 		db.get_case_id({docId, id})
 			.then(caseId =>{
-				res.status(200).send(caseId)
+				res.status(200).send(caseId[0])
 			})
 			.catch(err =>{
 				if (err) throw err;
 			})
+	},
+
+	createVisit: async (req, res)=>{
+		const {date, caseId}= req.body
+		const db = req.app.get('db')
+
+		db.create_visit({date, caseId})
+		.then(visitId =>{
+			res.status(200).send(visitId[0])
+		})
+		.catch(err =>{
+			if(err) throw err
+		})
 	}
 };

@@ -13,7 +13,10 @@ class NewVisit extends Component {
 			suggestionDropDown: false,
 			selectedPatient: {}, 
 			date: '',
-			case: null
+			caseId: null,
+			disabled: true, 
+			visitId: null
+			
 		};
 	}
 	componentDidMount() {
@@ -48,33 +51,45 @@ class NewVisit extends Component {
 
 	handleDateInput=(e)=>{
 		this.setState({
-			[e.target.name]: e.target.value
+			[e.target.name]: e.target.value,
+			disabled: false
 		})
 		
 	}
 
-	handleSelectedPatient=(id, suggestion)=>{
-		
-
-
+	handleSelectedPatient=(e, id, suggestion)=>{
 		axios.get(`/api/getcase/${this.props.doctor.id}?id=${id}`)
 		.then(res =>{
 			this.setState({
-				case: res.data,
+				caseId: res.data.case_id,
 				selectedPatient: suggestion
 			})
 		}	
 		)
 	}
 
-	render() {
+	onContinue=(e)=>{
+		const {date, caseId}= this.state
+		axios.post('/api/newvisit', {date, caseId})
+		.then((res)=>{
+			this.setState({
+				visitId: res.data.visit_id
+			})
+			// this.props.history.push('/newchart')
+		})
+		.catch(err =>{
+			console.log(err)
+		})
 
+	}
+
+	render() {
 		console.log(this.state)
 		const mappedSuggestions = this.state.suggestions.map((suggestion) => {
 			return (
 				<div>
 					
-					<li onClick={this.handleSelectedPatient(suggestion.id, suggestion)}>
+					<li onClick={(e)=>this.handleSelectedPatient(e,suggestion.id, suggestion)}>
 					{suggestion.first_name}
 					{suggestion.last_name}
 					{suggestion.dob}
@@ -86,7 +101,6 @@ class NewVisit extends Component {
 		return (
 			<div>
 				<p>NewVisit</p>
-				
 				<div>
 				<input onChange={this.filterPatients} type='text' ref={this.suggestionInput}  />
 				{
@@ -103,6 +117,9 @@ class NewVisit extends Component {
 				<div>
 				<h5>{this.state.selectedPatient.first_name}{this.state.selectedPatient.last_name}{this.state.selectedPatient.dob}</h5>
 				<p>Date</p><input placeholder='mm/dd/yyy' name='date' onChange={this.handleDateInput}></input>
+				<button disabled={this.state.disabled} onClick={this.onContinue}>
+					Continue
+				</button>
 				</div>
 				: 
 				null

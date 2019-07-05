@@ -1,0 +1,61 @@
+.nav_menu{
+    height: 100vh;
+    width: 130px;
+    display: flex;
+    flex-direction: column;
+    background-image: linear-gradient(to bottom left, #3cefff, #0396FF);
+    justify-content: space-evenly;    
+    box-shadow: 5px 5px 15px ; 
+    color: rgb(163, 163, 163)
+  }
+  
+  .icons{
+    background: transparent;
+    margin: auto;
+    border: none;
+    display: flex;
+    justify-content: space-evenly
+    
+  }
+  
+  button:focus {outline:0;}
+  
+  .icons:hover{
+    cursor: pointer;
+    -webkit-animation-name: pulse;
+          animation-name: pulse;
+          -webkit-animation-duration: 1s;
+          animation-duration: 1s;
+          -webkit-animation-fill-mode: both;
+          animation-fill-mode: both; 
+  }
+
+  @-webkit-keyframes pulse {
+    0% {
+    -webkit-transform: scale3d(1, 1, 1);
+    transform: scale3d(1, 1, 1);
+    }
+    50% {
+    -webkit-transform: scale3d(1.05, 1.05, 1.05);
+    transform: scale3d(1.05, 1.05, 1.05);
+    }
+    100% {
+    -webkit-transform: scale3d(1, 1, 1);
+    transform: scale3d(1, 1, 1);
+    }
+    }
+    @keyframes pulse {
+    0% {
+    -webkit-transform: scale3d(1.2, 1.2, 1.2);
+    transform: scale3d(1.2, 1.2, 1.2);
+    }
+    0% {
+    -webkit-transform: scale3d(1.05, 1.05, 1.05);
+    transform: scale3d(1.05, 1.05, 1.05);
+    }
+    100% {
+    -webkit-transform: scale3d(1.2, 1.2, 1.2);
+    transform: scale3d(1.2, 1.2, 1.2);
+    }
+    } 
+  

@@ -1,4 +1,4 @@
-.register_fields{
+.login_fields{
    display: flex;
    flex-direction: column;
    height: 600px;
@@ -12,7 +12,7 @@ form {
     margin-top: 5em
 }
 
-.register_fields > input{
+.login_fields > input{
     text-decoration: none;
     display: inline-block;
     font-size: 12px;
@@ -21,14 +21,14 @@ form {
     width: 11rem;
     background: white;
     color: black;
-    text-transform: capitalize;
+    text-transform: none;
     border: 2px solid white;
     font-weight: bold;
 }
 
 input:focus {outline:0;}
 
-.register_fields > button{
+.login_fields > button{
     z-index: 1;
   position: relative;
   font-size: 15px;
@@ -40,7 +40,7 @@ input:focus {outline:0;}
   background: transparent;
 }
 
-.register_fields > button::before {
+.login_fields > button::before {
     content: '';
     z-index: -1;
     position: absolute;
@@ -54,16 +54,75 @@ input:focus {outline:0;}
     transition: transform 0.25s ease-in-out;
   }
   
-  .register_fields > button:hover {
+  .login_fields > button:hover {
     cursor: pointer;
     color:white;
     transition: 0.15s
   }
   
-  .register_fields > button:hover::before {
+  .login_fields > button:hover::before {
     transform-origin: center left;
     transform: scaleX(1);
   }
+
+  .login_fields > input{
+    text-decoration: none;
+    display: inline-block;
+    font-size: 12px;
+    padding: 0.5rem 0;
+    margin: auto;
+    width: 11rem;
+    background: white;
+    color: black;
+    border: 2px solid white;
+    font-weight: bold;
+}
+
+input:focus {outline:0;}
+
+.register_btn{
+    display: flex;
+    flex-direction: column;
+    width: 350px;
+    text-decoration: none
+}
+
+.register_btn > button{
+    z-index: 1;
+  position: relative;
+  font-size: 15px;
+  font-family: inherit;
+  color: black;
+  padding: 1em 1em;
+  outline: none;
+  border: none;
+  background: transparent;
+}
+
+.register_btn > button::before {
+    content: '';
+    z-index: -1;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: #fc2f70;
+    transform-origin: center right;
+    transform: scaleX(0);
+    transition: transform 0.25s ease-in-out;
+  }
+  
+  .register_btn > button:hover {
+    cursor: pointer;
+    color:white;
+    transition: 0.15s
+  }
+  
+  .register_btn > button:hover::before {
+    transform-origin: center left;
+    transform: scaleX(1);
+  }  
 
   body{
   background: #3399ff;

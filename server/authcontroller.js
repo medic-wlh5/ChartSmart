@@ -5,9 +5,15 @@ module.exports = {
 		const { first_name, last_name, email, password, office, pin } = req.body;
 		const db = req.app.get('db');
 		const { session } = req;
-		const doctorFound = await db.check_doctor_email({ email });
-		if (doctorFound[0])
+
+		// Check if email exists
+		const doctorEmailFound = await db.check_doctor_email({ email });
+		if (doctorEmailFound[0])
 			return res.status(409).send('Email address already exists.');
+		// Check if pin exists
+		const doctorPinFound = await db.check_doctor_pin({ pin });
+		if (doctorPinFound[0]) return res.status(409).send('Pin already exists.');
+
 		const salt = bcrypt.genSaltSync(10);
 		const hash = bcrypt.hashSync(password, salt);
 		const createdDoctor = await db.register_doctor({
@@ -99,7 +105,7 @@ module.exports = {
 		const { session } = req;
 		const userFound = await db.check_patient_email({ email });
 		if (!userFound[0])
-			return res.status(401).send('That user does not exist, please register');
+			return res.status(401).send('That user does not exist, please register.');
 		const authenticated = bcrypt.compareSync(password, userFound[0].password);
 		if (authenticated) {
 			session.user = {

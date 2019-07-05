@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import { connect } from 'react-redux';
 import {getVisitId} from '../../../redux/doctorReducer'
+import DocNav from '../DocNav/DocNav'
 
 class NewVisit extends Component {
 	constructor(props) {
@@ -99,6 +100,7 @@ class NewVisit extends Component {
 		return (
 			<div>
 				<p>NewVisit</p>
+				
 				<div>
 				<input onChange={this.filterPatients} type='text' ref={this.suggestionInput}  />
 				{
@@ -122,7 +124,7 @@ class NewVisit extends Component {
 				: 
 				null
 				}
-			
+			<DocNav/>
 			</div>
 		);
 	}

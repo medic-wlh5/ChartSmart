@@ -67,6 +67,8 @@ input:focus {outline:0;}
 
   body{
   background: #3399ff;
+  max-height: 100%;  
+  overflow: hidden; 
 }
 
 

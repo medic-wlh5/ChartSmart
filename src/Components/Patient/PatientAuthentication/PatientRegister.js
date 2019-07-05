@@ -40,7 +40,7 @@ class PatientRegister extends Component {
 
     render() {
         return (
-            <div className='page'>
+            <div>
                 <div class='ripple-background'>
                   <div class='circle xxlarge shade1'></div>
                   <div class='circle xlarge shade2'></div>

@@ -65,17 +65,15 @@ class NewVisit extends Component {
 				caseId: res.data.case_id,
 				selectedPatient: suggestion
 			})
-		}	
-		)
+		})
 	}
 
 	onContinue=(e)=>{
 		const {date, caseId}= this.state
 		axios.post('/api/newvisit', {date, caseId})
 		.then((res)=>{
-			console.log(res.data.visit_id)
 			this.props.getVisitId(res.data.visit_id)
-			// this.props.history.push('/newchart')
+			this.props.history.push('/newchart')
 		})
 		.catch(err =>{
 			console.log(err)

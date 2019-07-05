@@ -4,6 +4,7 @@ const express = require('express'),
 	massive = require('massive'),
 	auth_ctrl = require('./authcontroller'),
 	doc_ctrl = require('./doccontroller');
+	pat_ctrl=require('./patcontroller')
 const app = express();
 const { CONNECTION_STRING, SERVER_PORT, SESSION_SECRET } = process.env;
 
@@ -37,4 +38,4 @@ app.get('/api/doctor/:id', doc_ctrl.getAllPatients);
 app.get('/api/getcase/:docId', doc_ctrl.getCaseId)
 app.post('/api/newvisit', doc_ctrl.createVisit)
 app.post('/api/newchart/bloodwork', doc_ctrl.chartBloodwork)
-app.get('/api/bloodwork/:id', patcontroller.getBloodTests)
+app.get('/api/bloodwork/:id', pat_ctrl.getBloodTests)

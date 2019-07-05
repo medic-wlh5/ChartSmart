@@ -99,8 +99,8 @@ class NewVisit extends Component {
 		
 		return (
 			<div>
-				<DocNav/>
 				<p>NewVisit</p>
+				
 				<div>
 				<input onChange={this.filterPatients} type='text' ref={this.suggestionInput}  />
 				{
@@ -124,7 +124,7 @@ class NewVisit extends Component {
 				: 
 				null
 				}
-			
+			<DocNav/>
 			</div>
 		);
 	}

@@ -64,7 +64,7 @@ class  NewChart extends Component  {
   e.preventDefault()
   const bloodTestsToChart={testName:bloodTest, testValue: bloodValue}
   this.state.bloodTestValues.push(bloodTestsToChart)
-  console.log(bloodTestsToChart)
+ 
   this.setState({
       bloodTestTotals: [...this.state.bloodTestTotals, 1], 
       bloodValue: '', 
@@ -73,11 +73,11 @@ class  NewChart extends Component  {
 
  handleBloodSubmit=(e)=>{
    const {bloodTestValues}= this.state
-   const {visitId}= this.props.doctor.visitId
+   const visitId= this.props.doctor.visitId
    console.log(visitId)
    axios.post('/api/newchart/bloodwork', {bloodTestValues, visitId})
    .then((res)=>{
-      console.log('it worked')
+      console.log(res)
    })
    .catch(err=>{
      console.log(err)

@@ -1,49 +1,6 @@
-// import React, { Component } from 'react';
-// import { Line } from 'react-chartjs-2';
-
-
-// const data = {
-// 	labels: [
-// 		'January'
-// 	],
-// 	datasets: [{
-// 		data: [300, 110, 200, 50, 450],
-// 		backgroundColor: [
-// 		'#FF6384',
-// 		'#36A2EB',
-// 		'#FFCE56',
-// 		'#56CB43',
-// 		'#34B3TD'
-// 		],
-// 		hoverBackgroundColor: [
-// 		'#FF6384',
-// 		'#36A2EB',
-// 		'#FFCE56'
-// 		],
-// 		pointBackgroundColor: [
-// 		'#0396FF'
-// 		],
-//         xAxisID: 'hello x',
-    
-//         yAxisID: 'goodbye y'
-//     }]
-    
-// }
-
-// export default class WhiteBloodCell extends Component {
-//     render() {
-//         return (
-//             <div>
-//                 <Line data={data} />
-//             </div>
-//         )
-//     }
-// }
-
-
 import React, { Component } from 'react'
 import Chart from "chart.js";
-import classes from "./Line.module.css";
+import axios from 'axios';
 let myLineChart;
 
 //--Chart Style Options--//
@@ -55,6 +12,7 @@ export default class LineGraph extends Component {
     chartRef = React.createRef();
 
     componentDidMount() {
+        axios.get('/')
         this.buildChart();
     }
 
@@ -120,7 +78,7 @@ export default class LineGraph extends Component {
     render() {
 
         return (
-            <div className={classes.graphContainer}>
+            <div className="graphContainer">
                 <canvas
                     id="myChart"
                     ref={this.chartRef}

@@ -107,7 +107,7 @@ class NewVisit extends Component {
 				<input onChange={this.filterPatients} type='text' ref={this.suggestionInput}  />
 				{
 					this.state.suggestionDropDown ?
-					<div style={{width: '100vw', height: '30vh'}}> 
+					<div className='sug_box'> 
 						{mappedSuggestions}
 					</div>
 					:

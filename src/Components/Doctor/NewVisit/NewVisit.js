@@ -3,6 +3,7 @@ import axios from 'axios';
 import { connect } from 'react-redux';
 import {getVisitId} from '../../../redux/doctorReducer'
 import DocNav from '../DocNav/DocNav'
+import './NewVisit.css'
 
 class NewVisit extends Component {
 	constructor(props) {
@@ -98,10 +99,11 @@ class NewVisit extends Component {
 		})
 		
 		return (
-			<div>
+			<div className='page'>
+				<DocNav/>
+				<div className='container'>
+				<div className='box1'>
 				<p>NewVisit</p>
-				
-				<div>
 				<input onChange={this.filterPatients} type='text' ref={this.suggestionInput}  />
 				{
 					this.state.suggestionDropDown ?
@@ -114,7 +116,7 @@ class NewVisit extends Component {
 				</div>
 			
 				{this.state.selectedPatient.id  ?
-				<div>
+				<div className='box2'>
 				<h5>{this.state.selectedPatient.first_name}{this.state.selectedPatient.last_name}{this.state.selectedPatient.dob}</h5>
 				<p>Date</p><input placeholder='mm/dd/yyy' name='date' onChange={this.handleDateInput}></input>
 				<button disabled={this.state.disabled} onClick={this.onContinue}>
@@ -124,7 +126,7 @@ class NewVisit extends Component {
 				: 
 				null
 				}
-			<DocNav/>
+				</div>
 			</div>
 		);
 	}

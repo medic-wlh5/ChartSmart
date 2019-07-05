@@ -36,5 +36,18 @@ module.exports = {
 		.catch(err =>{
 			if(err) throw err
 		})
+	}, 
+
+	chartBloodwork: async (req, res)=>{
+		const {bloodTestValues, visitId}= req.body
+		const db= req.app.get('db')
+
+	for (let i=0; i<bloodTestValues.length; i++){
+		db.chart_bloodwork(bloodTestValues[i].testName, bloodTestValues[i].testValue, visitId)
+		.then(res.sendStatus(200))
+		
+	}
+	
+		
 	}
 };

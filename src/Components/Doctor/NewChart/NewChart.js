@@ -21,6 +21,7 @@ class  NewChart extends Component  {
  }
 
 
+
  handleTestTypeChange=(e)=>{
    this.setState({testtype: e.target.value})
  }
@@ -59,19 +60,37 @@ class  NewChart extends Component  {
   }
  }
 
- handleAddBloodTest=(e, value)=>{
-  this.state.bloodTestValues.push(value)
+ handleAddBloodTest=(e, bloodTest, bloodValue)=>{
+  e.preventDefault()
+  const bloodTestsToChart={testName:bloodTest, testValue: bloodValue}
+  this.state.bloodTestValues.push(bloodTestsToChart)
+ 
   this.setState({
-    
-  })
+      bloodTestTotals: [...this.state.bloodTestTotals, 1], 
+      bloodValue: '', 
+      bloodSubmit: true })
+ }
+
+ handleBloodSubmit=(e)=>{
+   const {bloodTestValues}= this.state
+   const visitId= this.props.doctor.visitId
+   console.log(visitId)
+   axios.post('/api/newchart/bloodwork', {bloodTestValues, visitId})
+   .then((res)=>{
+      console.log(res)
+   })
+   .catch(err=>{
+     console.log(err)
+   })
  }
 
   render(){
-    console.log(this.state)
+    console.log(this.props.doctor.visitId)
     const mappedBloodTestTotals= this.state.bloodTestTotals.map((total, i )=>{
       return(
        <React.Fragment>
        <select value={this.state.bloodtest} onChange={this.handleBloodTestChange}>
+          <option value=''>Choose Blood Test</option>
           <option value='white blood cell count'> White blood cell count</option>
           </select>
           <input onChange={this.handleBloodTestValue}></input>
@@ -110,8 +129,8 @@ class  NewChart extends Component  {
         {this.state.testtype === 'bloodwork' ?
         <form>
           {mappedBloodTestTotals}
-          <button onClick={()=> this.setState({bloodTestTotals: [...this.state.bloodTestTotals, 1], bloodValue: '', bloodSubmit: true })}>Add more tests</button>
-          <button disabled={this.state.bloodSubmit}>Chart It Real Good</button>
+          <button onClick={(e)=>this.handleAddBloodTest(e, this.state.bloodtest, this.state.bloodValue)}>Add more tests</button>
+          <button disabled={this.state.bloodSubmit} onClick={this.handleBloodSubmit}>Chart It Real Good</button>
         </form>
         :
         null

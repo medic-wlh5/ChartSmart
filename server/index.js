@@ -36,3 +36,5 @@ app.get('/auth/logout', auth_ctrl.logout);
 app.get('/api/doctor/:id', doc_ctrl.getAllPatients);
 app.get('/api/getcase/:docId', doc_ctrl.getCaseId)
 app.post('/api/newvisit', doc_ctrl.createVisit)
+app.post('/api/newchart/bloodwork', doc_ctrl.chartBloodwork)
+app.get('/api/bloodwork/:id', patcontroller.getBloodTests)

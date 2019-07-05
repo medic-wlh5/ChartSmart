@@ -48,7 +48,7 @@ class PatientRegister extends Component {
                   <div class='circle mediun shade4'></div>
                   <div class='circle small shade5'></div>
                 </div>
-                 <form className='register_fields' 
+                 <form className='login_fields' 
                     onSubmit={this.handlePatientRegister}>
                     <input 
                     type='text' 

@@ -4,6 +4,7 @@ import { withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { updateUser } from '../../../redux/patientReducer';
 import { Link } from 'react-router-dom';
+import '../PatForm.css'
 
 class PatientLogin extends Component {
 	
@@ -38,7 +39,13 @@ class PatientLogin extends Component {
 
 	render() {
 		return (
-			<>
+			<><div class='ripple-background'>
+			<div class='circle xxlarge shade1'></div>
+			<div class='circle xlarge shade2'></div>
+			<div class='circle large shade3'></div>
+			<div class='circle mediun shade4'></div>
+			<div class='circle small shade5'></div>
+		  </div>
 				<form className='login_fields'>
 					<input
 						type='text'
@@ -54,7 +61,7 @@ class PatientLogin extends Component {
 					/>
 					<button onClick={this.handlePatientLogin}>Login</button>
 
-					<Link to='/patientregister'>
+					<Link className='register_btn' to='/patientregister'>
 						<button>Need an Account?</button>
 					</Link>
 				</form>

@@ -74,6 +74,7 @@ class  NewChart extends Component  {
  handleBloodSubmit=(e)=>{
    const {bloodTestValues}= this.state
    const {visitId}= this.props.doctor.visitId
+   console.log(visitId)
    axios.post('/api/newchart/bloodwork', {bloodTestValues, visitId})
    .then((res)=>{
       console.log('it worked')
@@ -84,7 +85,7 @@ class  NewChart extends Component  {
  }
 
   render(){
-    console.log(this.state)
+    console.log(this.props.doctor.visitId)
     const mappedBloodTestTotals= this.state.bloodTestTotals.map((total, i )=>{
       return(
        <React.Fragment>

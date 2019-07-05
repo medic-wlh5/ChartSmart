@@ -1,6 +1,6 @@
 module.exports = {
-    getBloodTests = () => {
-        
+    getBloodTests : (req, res) => {
+        res.status(200)
     }
 
 }

@@ -33,7 +33,7 @@ export default class LineGraph extends Component {
                 labels: labels,
                 datasets: [
                     {
-                        label: "Sales",
+                        label: "White Blood Cell Count",
                         data: data,
                         fill: false,
                         borderColor: "#6610f2"

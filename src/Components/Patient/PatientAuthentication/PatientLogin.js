@@ -6,6 +6,7 @@ import { updateUser } from '../../../redux/patientReducer';
 import { Link } from 'react-router-dom';
 
 class PatientLogin extends Component {
+	
 	constructor() {
 		super();
 		this.state = {

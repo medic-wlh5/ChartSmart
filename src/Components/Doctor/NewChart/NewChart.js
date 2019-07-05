@@ -71,10 +71,10 @@ class  NewChart extends Component  {
       bloodSubmit: true })
  }
 
- handleSubmit=(e)=>{
+ handleBloodSubmit=(e)=>{
    const {bloodTestValues}= this.state
    const {visitId}= this.props.doctor.visitId
-   axios.post('/api/newchart', {bloodTestValues, visitId})
+   axios.post('/api/newchart/bloodwork', {bloodTestValues, visitId})
    .then((res)=>{
 
    })
@@ -129,7 +129,7 @@ class  NewChart extends Component  {
         <form>
           {mappedBloodTestTotals}
           <button onClick={(e)=>this.handleAddBloodTest(e, this.state.bloodtest, this.state.bloodValue)}>Add more tests</button>
-          <button disabled={this.state.bloodSubmit}>Chart It Real Good</button>
+          <button disabled={this.state.bloodSubmit} onClick={this.handleBloodSubmit}>Chart It Real Good</button>
         </form>
         :
         null

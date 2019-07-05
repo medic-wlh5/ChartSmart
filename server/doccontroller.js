@@ -39,12 +39,12 @@ module.exports = {
 	}, 
 
 	chartBloodwork: async (req, res)=>{
-		const {bloodwork, visitId}= req.body
+		const {bloodTestValues, visitId}= req.body
 		const db= req.app.get('db')
 
-	for (let i=0; i<bloodwork.length; i++){
-		db.chart_bloodwork(bloodwork[i].testName, bloodwork[i].testValue, visitId)
-		.then(res.status(200))
+	for (let i=0; i<bloodTestValues.length; i++){
+		db.chart_bloodwork(bloodTestValues[i].testName, bloodTestValues[i].testValue, visitId)
+		.then(res.sendStatus(200))
 		
 	}
 	

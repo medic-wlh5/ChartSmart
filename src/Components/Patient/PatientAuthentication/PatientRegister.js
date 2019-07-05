@@ -20,7 +20,7 @@ class PatientRegister extends Component {
         e.preventDefault()
         const {first_name, last_name, email, password, DOB, doctor_pin} = this.state
         axios.post('auth/patientregister', {first_name, last_name, email, password, DOB, doctor_pin}).then((res) => {
-            this.props.history.push('/home')
+            this.props.history.push('/patientdashboard')
         }).catch((err) => {
             console.log(err)
         })

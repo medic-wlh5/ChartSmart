@@ -1,14 +1,15 @@
-module.exports = {
-  // handleSelectedPatient=(e, id, suggestion)=>{
-	// 	axios.get(`/api/getcase/${this.props.doctor.id}?id=${id}`)
-	// 	.then(res =>{
-	// 		this.setState({
-	// 			caseId: res.data.case_id,
-	// 			selectedPatient: suggestion
-	// 		})
-	// 	})
-  // }
-  
-  handleGetBloodTest: async 
 
-}
+module.exports = {
+	getBloodTests: async (req, res) => {
+		const db = req.app.get('db');
+		const { id } = req.params;
+		const { test } = req.query;
+		db.getChartById({ id, test })
+			.then(tests => {
+				res.status(200).send(tests);
+			})
+			.catch(err => {
+				if (err) throw err;
+			});
+	},
+};

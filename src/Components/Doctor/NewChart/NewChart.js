@@ -76,7 +76,7 @@ class  NewChart extends Component  {
    const {visitId}= this.props.doctor.visitId
    axios.post('/api/newchart/bloodwork', {bloodTestValues, visitId})
    .then((res)=>{
-
+      console.log('it worked')
    })
    .catch(err=>{
      console.log(err)

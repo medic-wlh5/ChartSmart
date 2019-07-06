@@ -16,7 +16,8 @@ class  NewChart extends Component  {
     bloodSubmit: true,
     vitalValue: '',
     bloodValue: '',
-    bloodTestValues:[]
+    bloodTestValues:[], 
+    vitalTestValues: []
    }
  }
 
@@ -60,6 +61,17 @@ class  NewChart extends Component  {
   }
  }
 
+ handleVitalTestValue=(e)=>{
+   this.setState({
+     vitalValue: e.target.value
+   })
+   if(this.state.vitalValue.length > 0){
+     this.setState({
+       vitalSubmit: false
+     })
+   }
+ }
+
  handleAddBloodTest=(e, bloodTest, bloodValue)=>{
   e.preventDefault()
   const bloodTestsToChart={testName:bloodTest, testValue: bloodValue}
@@ -69,6 +81,18 @@ class  NewChart extends Component  {
       bloodTestTotals: [...this.state.bloodTestTotals, 1], 
       bloodValue: '', 
       bloodSubmit: true })
+ }
+
+ handleAddVitalTest=(e, vitalTest, vitalValue)=>{
+   e.preventDefault()
+   const vitalTestsToChart={testName: vitalTest, testValue: vitalValue}
+   this.state.vitalTestValues.push(vitalTestsToChart)
+
+   this.setState({
+     vitalTestTotals: [...this.state.vitalTestTotals, 1],
+     vitalValue: '',
+     vitalSubmit: true
+   })
  }
 
  handleBloodSubmit=(e)=>{
@@ -84,6 +108,19 @@ class  NewChart extends Component  {
    })
  }
 
+ handleVitalSubmit=(e)=>{
+   const {vitalTestValues}= this.state
+   const visitId= this.props.doctor.visitId
+
+   axios.post('/api/newchart/vitals', {vitalTestValues, visitId})
+   .then((res)=>{
+     console.log(res)
+   })
+   .catch(err=>{
+     console.log(err)
+   })
+ }
+
   render(){
     console.log(this.props.doctor.visitId)
     const mappedBloodTestTotals= this.state.bloodTestTotals.map((total, i )=>{
@@ -92,6 +129,7 @@ class  NewChart extends Component  {
        <select value={this.state.bloodtest} onChange={this.handleBloodTestChange}>
           <option value=''>Choose Blood Test</option>
           <option value='white blood cell count'> White blood cell count</option>
+          <option value='TSH'>TSH</option>
           </select>
           <input onChange={this.handleBloodTestValue}></input>
           <button onClick={(e)=>this.deleteBloodTest(e,i)}>Delete Test</button>
@@ -103,7 +141,10 @@ class  NewChart extends Component  {
       return(
         <React.Fragment key={i}>
          <select value={this.state.vitaltest} onChange={this.handleVitalTestChange}>
+         <option value=''>Choose Vital to Chart</option>
           <option value='resting heart rate'>Resting heart rate</option>
+          <option value='weight'>Weight</option>
+          <option value='temperature'>Temperature</option>
           </select>
           <input></input>
           <button onClick={(e)=>this.deleteVitalTest(e,i)}>Delete Test</button>
@@ -113,7 +154,7 @@ class  NewChart extends Component  {
     return(
       
       <div>
-        <p>New Chart</p>
+        <p>Create New Chart</p>
         
         <form>
         <label>
@@ -138,8 +179,8 @@ class  NewChart extends Component  {
         {this.state.testtype ==='vitals' ?
         <form>
           {mappedVitalTestTotals}
-          <button onClick={()=>this.setState({vitalTestTotals: [...this.state.vitalTestTotals, 1]})}>Add test</button>
-          <button disabled={this.state.vitalSubmit}>Chart It Real Good</button>
+          <button onClick={(e)=>this.handleAddVitalTest(e, this.state.vitaltest, this.state.vitalValue)}>Add test</button>
+          <button disabled={this.state.vitalSubmit} onClick={this.handleVitalSubmit}>Chart It Real Good</button>
         </form>
         :
         null

@@ -49,5 +49,15 @@ module.exports = {
 	}
 	
 		
+	},
+
+	chartVitals: async(req, res)=>{
+		const {vitalTestValues, visitId}= req.body 
+		const db= req.app.get('db')
+
+		for(let i=0; i<vitalTestValues.length; i++){
+			db.chart_vitals(vitalTestValues[i].testName, vitalTestValues[i].testValue, visitId)
+			.then(res.sendStatus(200))
+		}
 	}
 };

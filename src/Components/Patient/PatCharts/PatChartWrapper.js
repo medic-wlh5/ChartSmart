@@ -53,13 +53,14 @@ export default class PatChartWrapper extends Component {
 							value={this.state.test}
 							onChange={this.handleTestTypeChange}>
 							<option value='' />
-							<option value='whiteBloodCellCount'>Bloodwork</option>
+							<option value='bloodwork'>Bloodwork</option>
 							<option value='vitals'>Vitals</option>
 						</select>
 					</label>
 				</form>
-				<div className='chartContainer'>
-					<button className='whiteBloodCell' onClick={this.showWhite}>
+				<div className='chartContainer'>{this.state.test == 'bloodwork' ? 
+					<div>
+						<button className='whiteBloodCell' onClick={this.showWhite}>
 						White Blood Cell Menu
 					</button>
 					<button className='TSH' onClick={this.showTSH}>
@@ -68,6 +69,7 @@ export default class PatChartWrapper extends Component {
 					<button className='cReactive' onClick={this.showCReactive}>
 						C Reactive Protein
 					</button>
+					</div>  : null}
 				</div>
 				<div>{this.state.whiteMenu ? <WhiteBloodCell /> : null}</div>
 				<div>{this.state.TSH ? <TSH /> : null}</div>

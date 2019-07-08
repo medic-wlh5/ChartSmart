@@ -12,20 +12,10 @@ import Docs from '../../../Assets/Docs.png'
 
 
 class DocDash extends Component {
-	handleLogout = () => {
-		this.props.clearDoctor();
-		axios.get('/auth/logout').catch(err => {
-			console.log(err);
-		});
-	};
-
 	render() {
 		return (
 			<div className='page'>
 				<DocNav/>
-				<Link to='/'>
-					<button onClick={this.handleLogout}>Logout</button>
-				</Link>
 				<div className='container'><img className='doc_img' src={Docs} height='150' width='500'></img>
 				<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
 				<Link className='clip' to='/newvisit'>

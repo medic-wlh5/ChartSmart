@@ -57,7 +57,7 @@ class Temperature extends Component {
 				labels: mappedDataDate,
 				datasets: [
 					{
-						label: 'White Blood Cell Count',
+						label: 'Temperature',
 						data: mappedDataValue,
 						fill: false,
                         borderColor: '#6610f2',
@@ -71,8 +71,8 @@ class Temperature extends Component {
 			options: {
 				//Customize chart options
 				title: {
-					dispaly: true,
-					text: 'White Blood Cell Count',
+					display: true,
+					text: 'Temperature',
 					fontSize: 25,
 				},
 				legend: {

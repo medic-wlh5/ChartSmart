@@ -138,7 +138,7 @@ class DocChartWrapper extends Component {
 
                 {this.state.selectedPatient.id ?
                 <div>
-                <h4>{`See Chart for ${this.state.selectedPatient.first_name}, ${this.state.selectedPatient.last_name}`}</h4>
+                <h4>{`See Chart for ${this.state.selectedPatient.first_name} ${this.state.selectedPatient.last_name}`}</h4>
 				<form>
 					<label>
 						Choose test type:

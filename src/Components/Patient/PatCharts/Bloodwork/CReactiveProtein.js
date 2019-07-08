@@ -10,11 +10,11 @@ Chart.defaults.global.defaultFontFamily = "'PT Sans', sans-serif";
 Chart.defaults.global.legend.display = false;
 //--Chart Style Options--//
 
-class WhiteBloodCell extends Component {
+class CReactiveProtein extends Component {
 	constructor(props) {
 		super(props);
 		this.state = {
-			test: 'white blood cell count',
+			test: 'C Reactive Protein',
 			data: []
 		};
 	}
@@ -57,7 +57,7 @@ class WhiteBloodCell extends Component {
 				labels: mappedDataDate,
 				datasets: [
 					{
-						label: 'White Blood Cell Count',
+						label: 'C Reactive Protein',
 						data: mappedDataValue,
 						fill: false,
 						borderColor: '#6610f2',
@@ -68,7 +68,7 @@ class WhiteBloodCell extends Component {
 				//Customize chart options
 				title: {
 					dispaly: true,
-					text: 'White Blood Cell Count',
+					text: 'C Reactive Protein',
 					fontSize: 25,
 				},
 				legend: {
@@ -87,8 +87,8 @@ class WhiteBloodCell extends Component {
 				},
 				tooltips: {
 					enabled: true,
-				},
-				scales:{
+                },
+                scales:{
 					yAxes:[{
 						ticks:{
 							beginAtZero: true
@@ -112,4 +112,4 @@ function mapStateToProps(reduxState) {
 	return reduxState;
 }
 
-export default connect(mapStateToProps)(WhiteBloodCell);
+export default connect(mapStateToProps)(CReactiveProtein);

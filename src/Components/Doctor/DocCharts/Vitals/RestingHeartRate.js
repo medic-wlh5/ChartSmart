@@ -57,7 +57,7 @@ class RestingHeartRate extends Component {
 				labels: mappedDataDate,
 				datasets: [
 					{
-						label: 'White Blood Cell Count',
+						label: 'Resting Heart Rate',
 						data: mappedDataValue,
 						fill: false,
                         borderColor: '#6610f2',
@@ -71,8 +71,8 @@ class RestingHeartRate extends Component {
 			options: {
 				//Customize chart options
 				title: {
-					dispaly: true,
-					text: 'White Blood Cell Count',
+					display: true,
+					text: 'Resting Heart Rate',
 					fontSize: 25,
 				},
 				legend: {

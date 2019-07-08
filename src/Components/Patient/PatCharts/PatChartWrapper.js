@@ -29,7 +29,7 @@ export default class PatChartWrapper extends Component {
 							value={this.state.test}
 							onChange={this.handleTestTypeChange}>
 							<option value='' />
-							<option value='whiteBloodCellCount'>White Blood Cell Count</option>
+							<option value='whiteBloodCellCount'>Bloodwork</option>
 							<option value='vitals'>Vitals</option>
 						</select>
 					</label>

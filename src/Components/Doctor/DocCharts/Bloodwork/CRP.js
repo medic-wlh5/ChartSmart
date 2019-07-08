@@ -11,12 +11,12 @@ Chart.defaults.global.defaultFontFamily = "'PT Sans', sans-serif";
 Chart.defaults.global.legend.display = false;
 //--Chart Style Options--//
 
-class WhiteBloodCell extends Component {
+class CRP extends Component {
 	constructor(props) {
 		super(props);
 		this.state = {
             data: [],
-            test: 'white blood cell count', 
+            test: 'c reactive protein', 
            
 		};
 	}
@@ -127,4 +127,4 @@ function mapStateToProps(reduxState) {
 	return reduxState;
 }
 
-export default connect(mapStateToProps)(WhiteBloodCell);
+export default connect(mapStateToProps)(CRP);

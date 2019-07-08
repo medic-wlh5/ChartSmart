@@ -1,5 +1,10 @@
 import React, { Component } from 'react';
 import WhiteBloodCell from './Bloodwork/WhiteBloodCell'
+import TSH from './Bloodwork/TSH'
+import CRP from './Bloodwork/CRP'
+import Weight from './Vitals/Weight'
+import Temperature from './Vitals/Temperature'
+import RestingHeartRate from './Vitals/RestingHeartRate'
 import {connect} from 'react-redux'
 import axios from 'axios';
 
@@ -11,7 +16,11 @@ class DocChartWrapper extends Component {
 		this.state = {
 
             whitebloodcell: false,
+            TSH: false,
+            CRP: false,
             restingheartrate: false,
+            weight: false, 
+            temperature: false,
             test: '',
             suggestionDropDown: false, 
             patients: [], 
@@ -52,13 +61,48 @@ class DocChartWrapper extends Component {
     }
 	showWhite = () => {
 		this.setState({
-			whitebloodcell: true,
+            whitebloodcell: true,
+            TSH: false,
+            CRP: false
 		});
     };
+    showTSH=()=>{
+        this.setState({
+            TSH: true,
+            whitebloodcell: false,
+            CRP: false
+        })
+    }
+    showCRP=()=>{
+        this.setState({
+            TSH: false, 
+            whitebloodcell: false, 
+            CRP: true
+        })
+    }
+
     
     showResting=()=>{
         this.setState({
-            restingheartrate: true
+            restingheartrate: true,
+            weight: false, 
+            temperature: false
+        })
+    }
+
+    showWeight=()=>{
+        this.setState({
+            restingheartrate: false,
+            weight: true,
+            temperature: false
+        })
+    }
+
+    showTemperature=()=>{
+        this.setState({
+            restingheartrate: false,
+            weight: false,
+            temperature: true
         })
     }
 	handleTestTypeChange = e => {
@@ -115,10 +159,25 @@ class DocChartWrapper extends Component {
 					    <button className='whiteBloodCell' onClick={this.showWhite}>
 						White Blood Cell Chart
 					    </button>
+                        <button onClick={this.showTSH}>
+                            TSH Chart
+                        </button>
+                        <button onClick={this.showCRP}>
+                            C Reactive Protein Chart
+                        </button>
 				    </div>
                 <div>
                 {this.state.whitebloodcell ? <WhiteBloodCell id={this.state.selectedPatient.id} /> 
                 : null}
+                
+                </div>
+                <div>
+                    {this.state.TSH ? 
+                    <TSH id={this.state.selectedPatient.id}/> : null}
+                </div>
+                <div>
+                    {this.state.CRP ?
+                    <CRP id={this.state.selectedPatient.id} /> : null}
                 </div>
 
                 </div>
@@ -131,8 +190,26 @@ class DocChartWrapper extends Component {
                     <button onClick={this.showResting}>
                         Resting Heart Rate Chart
                     </button>
+                    <button onClick={this.showTemperature}>
+                        Temperature
+                    </button>
+                    <button onClick={this.showWeight}>
+                        Weight
+                    </button>
                 </div>
-              
+                
+                <div>
+                    {this.state.restingheartrate ? 
+                    <RestingHeartRate id={this.state.selectedPatient.id}/> : null}
+                </div>
+                <div>
+                    {this.state.weight ? 
+                    <Weight id={this.state.selectedPatient.id}/> : null}
+                </div>
+                <div>
+                    {this.state.temperature ? 
+                    <Temperature id={this.state.selectedPatient.id}/> : null}
+                </div>
                 </>
                 :
                 null

@@ -14,7 +14,7 @@ class CReactiveProtein extends Component {
 	constructor(props) {
 		super(props);
 		this.state = {
-			test: 'creactiveprotein',
+			test: 'c reactive protein',
 			data: []
 		};
 	}

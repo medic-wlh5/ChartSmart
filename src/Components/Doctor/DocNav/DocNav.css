@@ -30,6 +30,7 @@
           animation-fill-mode: both; 
   }
 
+
   @-webkit-keyframes pulse {
     0% {
     -webkit-transform: scale3d(1, 1, 1);

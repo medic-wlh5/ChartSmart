@@ -10,7 +10,8 @@ class DocChartWrapper extends Component {
         this.suggestionInput=React.createRef()
 		this.state = {
 
-            whiteMenu: false,
+            whitebloodcell: false,
+            restingheartrate: false,
             test: '',
             suggestionDropDown: false, 
             patients: [], 
@@ -51,9 +52,15 @@ class DocChartWrapper extends Component {
     }
 	showWhite = () => {
 		this.setState({
-			whiteMenu: true,
+			whitebloodcell: true,
 		});
-	};
+    };
+    
+    showResting=()=>{
+        this.setState({
+            restingheartrate: true
+        })
+    }
 	handleTestTypeChange = e => {
 		this.setState({ test: e.target.value });
 	};
@@ -110,7 +117,7 @@ class DocChartWrapper extends Component {
 					    </button>
 				    </div>
                 <div>
-                {this.state.whiteMenu ? <WhiteBloodCell id={this.state.selectedPatient.id} /> 
+                {this.state.whitebloodcell ? <WhiteBloodCell id={this.state.selectedPatient.id} /> 
                 : null}
                 </div>
 
@@ -120,7 +127,12 @@ class DocChartWrapper extends Component {
                 }
                 {this.state.test === 'vitals' ?
                 <>
-                <p>Vitals</p>
+                <div>
+                    <button onClick={this.showResting}>
+                        Resting Heart Rate Chart
+                    </button>
+                </div>
+              
                 </>
                 :
                 null

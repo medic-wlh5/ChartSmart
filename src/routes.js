@@ -11,6 +11,7 @@ import PatDash from './Components/Patient/PatDash/PatDash';
 import NewVisit from './Components/Doctor/NewVisit/NewVisit';
 import PatChartWrapper from './Components/Patient/PatCharts/PatChartWrapper';
 import NewChart from './Components/Doctor/NewChart/NewChart'
+import DocChartWrapper from './Components/Doctor/DocCharts/DocChartWrapper'
 
 export default (
 	<Switch>
@@ -24,5 +25,6 @@ export default (
 		<Route path='/newvisit' component={NewVisit} />
 		<Route path='/patchart' component={PatChartWrapper} />
 		<Route path='/newchart' component={NewChart} />
+		<Route path='/doctorviewcharts' component={DocChartWrapper} />
 	</Switch>
 );

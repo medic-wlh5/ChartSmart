@@ -57,7 +57,7 @@ class Weight extends Component {
 				labels: mappedDataDate,
 				datasets: [
 					{
-						label: 'White Blood Cell Count',
+						label: 'Weight',
 						data: mappedDataValue,
 						fill: false,
                         borderColor: '#6610f2',
@@ -71,8 +71,8 @@ class Weight extends Component {
 			options: {
 				//Customize chart options
 				title: {
-					dispaly: true,
-					text: 'White Blood Cell Count',
+					display: true,
+					text: 'Weight',
 					fontSize: 25,
 				},
 				legend: {

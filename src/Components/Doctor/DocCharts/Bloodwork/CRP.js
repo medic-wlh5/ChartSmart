@@ -57,7 +57,7 @@ class CRP extends Component {
 				labels: mappedDataDate,
 				datasets: [
 					{
-						label: 'White Blood Cell Count',
+						label: 'C Reactive Protien',
 						data: mappedDataValue,
 						fill: false,
                         borderColor: '#6610f2',
@@ -71,8 +71,8 @@ class CRP extends Component {
 			options: {
 				//Customize chart options
 				title: {
-					dispaly: true,
-					text: 'White Blood Cell Count',
+					display: true,
+					text: 'C Reactive Protein',
 					fontSize: 25,
 				},
 				legend: {

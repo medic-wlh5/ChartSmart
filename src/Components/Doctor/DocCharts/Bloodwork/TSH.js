@@ -57,7 +57,7 @@ class TSH extends Component {
 				labels: mappedDataDate,
 				datasets: [
 					{
-						label: 'White Blood Cell Count',
+						label: 'TSH',
 						data: mappedDataValue,
 						fill: false,
                         borderColor: '#6610f2',
@@ -71,8 +71,8 @@ class TSH extends Component {
 			options: {
 				//Customize chart options
 				title: {
-					dispaly: true,
-					text: 'White Blood Cell Count',
+					display: true,
+					text: 'TSH',
 					fontSize: 25,
 				},
 				legend: {

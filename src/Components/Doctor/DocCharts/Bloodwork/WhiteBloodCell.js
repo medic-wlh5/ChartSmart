@@ -71,7 +71,7 @@ class WhiteBloodCell extends Component {
 			options: {
 				//Customize chart options
 				title: {
-					dispaly: true,
+					display: true,
 					text: 'White Blood Cell Count',
 					fontSize: 25,
 				},

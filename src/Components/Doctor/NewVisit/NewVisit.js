@@ -5,6 +5,7 @@ import {getVisitId} from '../../../redux/doctorReducer'
 import DocNav from '../DocNav/DocNav'
 import './NewVisit.css'
 
+//Images
 import SitDown from '../../../Assets/SitDown.png'
 
 class NewVisit extends Component {
@@ -138,3 +139,5 @@ function mapStateToProps(reduxState) {
 }
 
 export default connect(mapStateToProps, {getVisitId})(NewVisit);
+
+{/* <img src={Background} height='100%'></img> */}

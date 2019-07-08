@@ -4,7 +4,7 @@ module.exports = {
 		const db = req.app.get('db');
 		const { id } = req.params;
 		const { test } = req.query;
-		db.getChartById({ id, test })
+		db.getBloodworkById({ id, test })
 			.then(tests => {
 				res.status(200).send(tests);
 			})

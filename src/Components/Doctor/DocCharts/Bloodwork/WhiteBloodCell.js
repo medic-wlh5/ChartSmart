@@ -23,7 +23,7 @@ class WhiteBloodCell extends Component {
 	chartRef = React.createRef();
 
 	componentDidMount() {
-		const { id, test } = this.props
+		const { id } = this.props
 		this.buildChart();
 		axios.get(`/api/bloodwork/${id}?test=${this.state.test}`).then(res => {
 			this.setState({

@@ -130,6 +130,7 @@ class  NewChart extends Component  {
           <option value=''>Choose Blood Test</option>
           <option value='white blood cell count'> White blood cell count</option>
           <option value='TSH'>TSH</option>
+          <option value='c reactive protein'>C Reactive Protein</option>
           </select>
           <input onChange={this.handleBloodTestValue}></input>
           <button onClick={(e)=>this.deleteBloodTest(e,i)}>Delete Test</button>

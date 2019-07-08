@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import Chart from 'chart.js';
 import axios from 'axios';
 import { connect } from 'react-redux';
-import './WhiteBloodCell.css'
+
 
 let myLineChart;
 
@@ -11,12 +11,12 @@ Chart.defaults.global.defaultFontFamily = "'PT Sans', sans-serif";
 Chart.defaults.global.legend.display = false;
 //--Chart Style Options--//
 
-class WhiteBloodCell extends Component {
+class Weight extends Component {
 	constructor(props) {
 		super(props);
 		this.state = {
             data: [],
-            test: 'white blood cell count', 
+            test: 'weight', 
            
 		};
 	}
@@ -25,7 +25,7 @@ class WhiteBloodCell extends Component {
 	componentDidMount() {
 		const { id } = this.props
 		this.buildChart();
-		axios.get(`/api/bloodwork/${id}?test=${this.state.test}`).then(res => {
+		axios.get(`/api/vitals/${id}?test=${this.state.test}`).then(res => {
 			this.setState({
 				data: res.data
 			});
@@ -57,7 +57,7 @@ class WhiteBloodCell extends Component {
 				labels: mappedDataDate,
 				datasets: [
 					{
-						label: 'White Blood Cell Count',
+						label: 'Weight',
 						data: mappedDataValue,
 						fill: false,
                         borderColor: '#6610f2',
@@ -72,7 +72,7 @@ class WhiteBloodCell extends Component {
 				//Customize chart options
 				title: {
 					display: true,
-					text: 'White Blood Cell Count',
+					text: 'Weight',
 					fontSize: 25,
 				},
 				legend: {
@@ -127,4 +127,4 @@ function mapStateToProps(reduxState) {
 	return reduxState;
 }
 
-export default connect(mapStateToProps)(WhiteBloodCell);
+export default connect(mapStateToProps)(Weight);

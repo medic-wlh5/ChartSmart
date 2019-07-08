@@ -11,12 +11,12 @@ Chart.defaults.global.defaultFontFamily = "'PT Sans', sans-serif";
 Chart.defaults.global.legend.display = false;
 //--Chart Style Options--//
 
-class WhiteBloodCell extends Component {
+class TSH extends Component {
 	constructor(props) {
 		super(props);
 		this.state = {
             data: [],
-            test: 'white blood cell count', 
+            test: 'TSH', 
            
 		};
 	}
@@ -57,7 +57,7 @@ class WhiteBloodCell extends Component {
 				labels: mappedDataDate,
 				datasets: [
 					{
-						label: 'White Blood Cell Count',
+						label: 'TSH',
 						data: mappedDataValue,
 						fill: false,
                         borderColor: '#6610f2',
@@ -72,7 +72,7 @@ class WhiteBloodCell extends Component {
 				//Customize chart options
 				title: {
 					display: true,
-					text: 'White Blood Cell Count',
+					text: 'TSH',
 					fontSize: 25,
 				},
 				legend: {
@@ -127,4 +127,4 @@ function mapStateToProps(reduxState) {
 	return reduxState;
 }
 
-export default connect(mapStateToProps)(WhiteBloodCell);
+export default connect(mapStateToProps)(TSH);

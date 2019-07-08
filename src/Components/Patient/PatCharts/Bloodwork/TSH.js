@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import Chart from 'chart.js';
 import axios from 'axios';
 import { connect } from 'react-redux';
-import './WhiteBloodCell.css'
 
 let myLineChart;
 
@@ -11,23 +10,23 @@ Chart.defaults.global.defaultFontFamily = "'PT Sans', sans-serif";
 Chart.defaults.global.legend.display = false;
 //--Chart Style Options--//
 
-class WhiteBloodCell extends Component {
+class TSH extends Component {
 	constructor(props) {
 		super(props);
 		this.state = {
-            data: [],
-            test: 'white blood cell count', 
-           
+			test: 'TSH',
+			data: []
 		};
 	}
 	chartRef = React.createRef();
 
 	componentDidMount() {
-		const { id } = this.props
+		const { test } = this.state;
+		const { id } = this.props.patient;
 		this.buildChart();
-		axios.get(`/api/bloodwork/${id}?test=${this.state.test}`).then(res => {
+		axios.get(`/api/bloodwork/${id}?test=${test}`).then(res => {
 			this.setState({
-				data: res.data
+				data: res.data,
 			});
 		});
 	}
@@ -35,21 +34,22 @@ class WhiteBloodCell extends Component {
 	componentDidUpdate() {
 		this.buildChart();
 	}
-    
-    
+	
 
 	buildChart = () => {
 		const myChartRef = this.chartRef.current.getContext('2d');
 		const { data, average, labels } = this.props;
-        const mappedDataValue= this.state.data.map((dataSet)=>{
-            return dataSet.value
-        })
-        const mappedDataDate=this.state.data.map((dataSet)=>{
-            return dataSet.date
-        })
-        
+
+		const mappedDataValue = this.state.data.map(dataSet => {
+			return dataSet.value
+		})
+
+		const mappedDataDate = this.state.data.map(dataSet => {
+			return dataSet.date
+		})
+
 		if (typeof myLineChart !== 'undefined') myLineChart.destroy();
-        var pointBackgroundColors=[]
+
 		myLineChart = new Chart(myChartRef, {
 			type: 'line',
 			data: {
@@ -57,22 +57,18 @@ class WhiteBloodCell extends Component {
 				labels: mappedDataDate,
 				datasets: [
 					{
-						label: 'White Blood Cell Count',
+						label: 'TSH',
 						data: mappedDataValue,
 						fill: false,
-                        borderColor: '#6610f2',
-                        backgroundColor: "#FFF"
-					},
-					{
-					
-					},
+						borderColor: '#6610f2',
+					}
 				],
 			},
 			options: {
 				//Customize chart options
 				title: {
-					display: true,
-					text: 'White Blood Cell Count',
+					dispaly: true,
+					text: 'TSH',
 					fontSize: 25,
 				},
 				legend: {
@@ -93,28 +89,17 @@ class WhiteBloodCell extends Component {
 					enabled: true,
                 },
                 scales:{
-                    yAxes:[{
-                        ticks:{
-                            beginAtZero: true
-                        }, 
-                        gridLines:{
-                            color: "#fff"
-                        }
-                    }]
-                },
-               
-
-                
+					yAxes:[{
+						ticks:{
+							beginAtZero: true
+						}
+					}]
+				}
 			},
-        });
-        
-      
+		});
 	};
 
 	render() {
-        console.log(this.props)
-        console.log(this.state)
-        
 		return (
 			<div className='graphContainer'>
 				<canvas id='myChart' ref={this.chartRef} />
@@ -127,4 +112,4 @@ function mapStateToProps(reduxState) {
 	return reduxState;
 }
 
-export default connect(mapStateToProps)(WhiteBloodCell);
+export default connect(mapStateToProps)(TSH);

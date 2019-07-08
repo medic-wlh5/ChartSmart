@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import WhiteBloodCell from './Bloodwork/WhiteBloodCell'
 import TSH from './Bloodwork/TSH'
 import CRP from './Bloodwork/CRP'
+import Weight from './Vitals/Weight'
+import Temperature from './Vitals/Temperature'
 import RestingHeartRate from './Vitals/RestingHeartRate'
 import {connect} from 'react-redux'
 import axios from 'axios';
@@ -85,6 +87,22 @@ class DocChartWrapper extends Component {
             restingheartrate: true,
             weight: false, 
             temperature: false
+        })
+    }
+
+    showWeight=()=>{
+        this.setState({
+            restingheartrate: false,
+            weight: true,
+            temperature: false
+        })
+    }
+
+    showTemperature=()=>{
+        this.setState({
+            restingheartrate: false,
+            weight: false,
+            temperature: true
         })
     }
 	handleTestTypeChange = e => {
@@ -172,11 +190,25 @@ class DocChartWrapper extends Component {
                     <button onClick={this.showResting}>
                         Resting Heart Rate Chart
                     </button>
+                    <button onClick={this.showTemperature}>
+                        Temperature
+                    </button>
+                    <button onClick={this.showWeight}>
+                        Weight
+                    </button>
                 </div>
                 
                 <div>
                     {this.state.restingheartrate ? 
                     <RestingHeartRate id={this.state.selectedPatient.id}/> : null}
+                </div>
+                <div>
+                    {this.state.weight ? 
+                    <Weight id={this.state.selectedPatient.id}/> : null}
+                </div>
+                <div>
+                    {this.state.temperature ? 
+                    <Temperature id={this.state.selectedPatient.id}/> : null}
                 </div>
                 </>
                 :

@@ -4,6 +4,9 @@ import { updateDoctor } from '../../../redux/doctorReducer';
 import { connect } from 'react-redux';
 import './DocForm.css'
 
+// import 'react-toastify/dist/ReactToastify.min.css';
+// import { ToastContainer, toast } from 'react-toastify'
+
 class DocRegister extends Component {
 	constructor(props) {
 		super(props);

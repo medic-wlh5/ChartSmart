@@ -5,6 +5,8 @@ import {getVisitId} from '../../../redux/doctorReducer'
 import DocNav from '../DocNav/DocNav'
 import './NewVisit.css'
 
+import SitDown from '../../../Assets/SitDown.png'
+
 class NewVisit extends Component {
 	constructor(props) {
 		super(props);
@@ -101,9 +103,9 @@ class NewVisit extends Component {
 		return (
 			<div className='page'>
 				<DocNav/>
-				<div className='container'>
+				<div className='visit_container'><img src={SitDown} height='200' width='450'></img>
 				<div className='box1'>
-				<p>NewVisit</p>
+				<p>Enter Patient Name</p>
 				<input onChange={this.filterPatients} type='text' ref={this.suggestionInput}  />
 				{
 					this.state.suggestionDropDown ?

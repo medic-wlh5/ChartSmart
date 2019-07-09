@@ -1,6 +1,8 @@
 import React, {Component} from 'react'
 import {connect} from 'react-redux'
 import axios from 'axios'
+import BloodTestSelection from './BloodTestSelection';
+import VitalTestSelection from './VitalTestSelection';
 import 'react-toastify/dist/ReactToastify.min.css';
 import { ToastContainer, toast } from 'react-toastify'
 import './NewChart.css'
@@ -31,16 +33,13 @@ class  NewChart extends Component  {
    this.setState({testtype: e.target.value})
  }
 
- handleBloodTestChange=(e)=>{
-   this.setState({bloodtest: e.target.value})
- }
 
- handleVitalTestChange=(e)=>{
-   this.setState({vitaltest: e.target.value})
- }
+
+
  deleteBloodTest=(e, i)=>{
    e.preventDefault()
    let filteredBloodTest= this.state.bloodTestTotals.filter((element, index)=> {
+     console.log(index, i)
     return index !== i;
    })
    this.setState({bloodTestTotals: filteredBloodTest})
@@ -127,34 +126,16 @@ class  NewChart extends Component  {
  }
 
   render(){
-    console.log(this.props.doctor.visitId)
+    
     const mappedBloodTestTotals= this.state.bloodTestTotals.map((total, i )=>{
       return(
-       <React.Fragment>
-       <select value={this.state.bloodtest} onChange={this.handleBloodTestChange}>
-          <option value=''>Choose Blood Test</option>
-          <option value='white blood cell count'> White blood cell count</option>
-          <option value='TSH'>TSH</option>
-          <option value='c reactive protein'>C Reactive Protein</option>
-          </select>
-          <input onChange={this.handleBloodTestValue}></input>
-          <button onClick={(e)=>this.deleteBloodTest(e,i)}>Delete Test</button>
-       </React.Fragment>
+       <BloodTestSelection handleBloodTestChange={this.handleBloodTestChange} handleBloodTestValue={this.handleBloodTestValue} deleteBloodTest={this.deleteBloodTest} i={i}/>
       )
     })
 
     const mappedVitalTestTotals= this.state.vitalTestTotals.map((total, i)=>{
       return(
-        <React.Fragment key={i}>
-         <select value={this.state.vitaltest} onChange={this.handleVitalTestChange}>
-         <option value=''>Choose Vital to Chart</option>
-          <option value='resting heart rate'>Resting heart rate</option>
-          <option value='weight'>Weight</option>
-          <option value='temperature'>Temperature</option>
-          </select>
-          <input></input>
-          <button onClick={(e)=>this.deleteVitalTest(e,i)}>Delete Test</button>
-        </React.Fragment>
+       <VitalTestSelection handleVitalTestValue={this.handleVitalTestValue} deleteVitalTest={this.deleteVitalTest} i={i}/>
       )
     })
     return(

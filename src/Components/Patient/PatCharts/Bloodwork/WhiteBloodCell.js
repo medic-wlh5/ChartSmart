@@ -68,7 +68,7 @@ class WhiteBloodCell extends Component {
 			options: {
 				//Customize chart options
 				title: {
-					dispaly: true,
+					dispy: true,
 					text: 'White Blood Cell Count',
 					fontSize: 25,
 				},
@@ -113,7 +113,7 @@ class WhiteBloodCell extends Component {
 	render() {
 		return (
 			<div className='graphContainer'>
-				<canvas id='myChart' ref={this.chartRef} />
+				<canvas height='400' width='400' id='myChart' ref={this.chartRef} />
 			</div>
 		);
 	}

@@ -121,7 +121,7 @@ class  NewChart extends Component  {
  }
 
   render(){
-    console.log(this.props.doctor.visitId)
+    
     const mappedBloodTestTotals= this.state.bloodTestTotals.map((total, i )=>{
       return(
        <BloodTestSelection handleBloodTestChange={this.handleBloodTestChange} handleBloodTestValue={this.handleBloodTestValue} deleteBloodTest={this.deleteBloodTest} i={i}/>

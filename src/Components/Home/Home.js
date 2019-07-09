@@ -1,11 +1,29 @@
 import React, { Component } from 'react'
 import './Home.css'
+import {Link} from 'react-router-dom'
+
+
+//images
+import Logo from '../../Assets/IconTrans2.png'
+import CS from '../../Assets/ChartSmart3.png'
 
 export default class Home extends Component {
     render() {
         return (
-            <div>
-                <h1>Chart Smart</h1>
+            <div className='landing_page'>
+                <div className='header'><img src={CS} height='100' width='300'></img><h1>Fast & Easy Doctor To Patient Information</h1></div>
+                <div className='landing_container'>
+                <Link  className='doc_link' to='/doctorlogin'>Doctor</Link>
+               
+                <Link className='pat_link' to='/patientlogin'>Patient</Link>
+                </div>
+                <div class='ripple-background'>
+                  <div class='circle xxlarge shade1'></div>
+                  <div class='circle xlarge shade2'></div>
+                  <div class='circle large shade3'></div>
+                  <div class='circle mediun shade4'></div>
+                  <div class='circle small shade5'></div>
+                </div>
             </div>
         )
     }

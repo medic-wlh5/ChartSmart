@@ -3,6 +3,10 @@ import axios from 'axios';
 import { connect } from 'react-redux';
 import {getVisitId} from '../../../redux/doctorReducer'
 import DocNav from '../DocNav/DocNav'
+import './NewVisit.css'
+
+//Images
+import SitDown from '../../../Assets/SitDown.png'
 
 class NewVisit extends Component {
 	constructor(props) {
@@ -97,14 +101,15 @@ class NewVisit extends Component {
 		})
 		
 		return (
-			<div>
-				<p>NewVisit</p>
-				
-				<div>
+			<div className='page'>
+				<DocNav/>
+				<h1 className='patient_title'>Enter Patient Name</h1>
+				<div className='visit_container'>
+				<div className='box1'>
 				<input onChange={this.filterPatients} type='text' ref={this.suggestionInput}  />
 				{
 					this.state.suggestionDropDown ?
-					<div style={{width: '100vw', height: '30vh'}}> 
+					<div className='sug_box'> 
 						{mappedSuggestions}
 					</div>
 					:
@@ -113,7 +118,7 @@ class NewVisit extends Component {
 				</div>
 			
 				{this.state.selectedPatient.id  ?
-				<div>
+				<div className='box2'>
 				<h5>{this.state.selectedPatient.first_name}{this.state.selectedPatient.last_name}{this.state.selectedPatient.dob}</h5>
 				<p>Date</p><input placeholder='mm/dd/yyy' name='date' onChange={this.handleDateInput}></input>
 				<button disabled={this.state.disabled} onClick={this.onContinue}>
@@ -123,7 +128,7 @@ class NewVisit extends Component {
 				: 
 				null
 				}
-			<DocNav/>
+				</div>
 			</div>
 		);
 	}
@@ -134,3 +139,5 @@ function mapStateToProps(reduxState) {
 }
 
 export default connect(mapStateToProps, {getVisitId})(NewVisit);
+
+{/* <img src={Background} height='100%'></img> */}

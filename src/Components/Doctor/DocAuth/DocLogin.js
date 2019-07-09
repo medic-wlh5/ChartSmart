@@ -35,8 +35,16 @@ class DocLogin extends Component {
 
 	render() {
 		return (
-			<div>
-				<form onSubmit={this.handleDoctorLogin}>
+			<div className='log_page'>
+			<div class='ripple-background'>
+					<div class='circle xxlarge shade1' />
+					<div class='circle xlarge shade2' />
+					<div class='circle large shade3' />
+					<div class='circle mediun shade4' />
+					<div class='circle small shade5' />
+				</div>
+			
+				<form className='login_fields' onSubmit={this.handleDoctorLogin}>
 					<input
 						type='email'
 						name='email'
@@ -50,10 +58,11 @@ class DocLogin extends Component {
 						onChange={this.handleChange}
 					/>
 					<button >Login</button>
-				</form>
-				<Link to='/doctorregister'>
+				<Link className='register_btn' to='/doctorregister'>
 					<button>Register</button>
 				</Link>
+				</form>
+			
 			</div>
 		);
 	}

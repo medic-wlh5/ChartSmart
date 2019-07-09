@@ -1,6 +1,12 @@
 import React, {Component} from 'react'
 import {connect} from 'react-redux'
 import axios from 'axios'
+import BloodTestSelection from './BloodTestSelection';
+import VitalTestSelection from './VitalTestSelection';
+import 'react-toastify/dist/ReactToastify.min.css';
+import { ToastContainer, toast } from 'react-toastify'
+import './NewChart.css'
+import DocNav from '../DocNav/DocNav'
 
 
 class  NewChart extends Component  {
@@ -16,7 +22,8 @@ class  NewChart extends Component  {
     bloodSubmit: true,
     vitalValue: '',
     bloodValue: '',
-    bloodTestValues:[]
+    bloodTestValues:[], 
+    vitalTestValues: []
    }
  }
 
@@ -26,16 +33,13 @@ class  NewChart extends Component  {
    this.setState({testtype: e.target.value})
  }
 
- handleBloodTestChange=(e)=>{
-   this.setState({bloodtest: e.target.value})
- }
 
- handleVitalTestChange=(e)=>{
-   this.setState({vitaltest: e.target.value})
- }
+
+
  deleteBloodTest=(e, i)=>{
    e.preventDefault()
    let filteredBloodTest= this.state.bloodTestTotals.filter((element, index)=> {
+     console.log(index, i)
     return index !== i;
    })
    this.setState({bloodTestTotals: filteredBloodTest})
@@ -60,6 +64,17 @@ class  NewChart extends Component  {
   }
  }
 
+ handleVitalTestValue=(e)=>{
+   this.setState({
+     vitalValue: e.target.value
+   })
+   if(this.state.vitalValue.length > 0){
+     this.setState({
+       vitalSubmit: false
+     })
+   }
+ }
+
  handleAddBloodTest=(e, bloodTest, bloodValue)=>{
   e.preventDefault()
   const bloodTestsToChart={testName:bloodTest, testValue: bloodValue}
@@ -71,12 +86,25 @@ class  NewChart extends Component  {
       bloodSubmit: true })
  }
 
+ handleAddVitalTest=(e, vitalTest, vitalValue)=>{
+   e.preventDefault()
+   const vitalTestsToChart={testName: vitalTest, testValue: vitalValue}
+   this.state.vitalTestValues.push(vitalTestsToChart)
+
+   this.setState({
+     vitalTestTotals: [...this.state.vitalTestTotals, 1],
+     vitalValue: '',
+     vitalSubmit: true
+   })
+ }
+
  handleBloodSubmit=(e)=>{
    const {bloodTestValues}= this.state
    const visitId= this.props.doctor.visitId
    console.log(visitId)
    axios.post('/api/newchart/bloodwork', {bloodTestValues, visitId})
    .then((res)=>{
+     toast('you did it')
       console.log(res)
    })
    .catch(err=>{
@@ -84,42 +112,43 @@ class  NewChart extends Component  {
    })
  }
 
+ handleVitalSubmit=(e)=>{
+   const {vitalTestValues}= this.state
+   const visitId= this.props.doctor.visitId
+
+   axios.post('/api/newchart/vitals', {vitalTestValues, visitId})
+   .then((res)=>{
+     console.log(res)
+   })
+   .catch(err=>{
+     console.log(err)
+   })
+ }
+
   render(){
-    console.log(this.props.doctor.visitId)
+    
     const mappedBloodTestTotals= this.state.bloodTestTotals.map((total, i )=>{
       return(
-       <React.Fragment>
-       <select value={this.state.bloodtest} onChange={this.handleBloodTestChange}>
-          <option value=''>Choose Blood Test</option>
-          <option value='white blood cell count'> White blood cell count</option>
-          </select>
-          <input onChange={this.handleBloodTestValue}></input>
-          <button onClick={(e)=>this.deleteBloodTest(e,i)}>Delete Test</button>
-       </React.Fragment>
+       <BloodTestSelection handleBloodTestChange={this.handleBloodTestChange} handleBloodTestValue={this.handleBloodTestValue} deleteBloodTest={this.deleteBloodTest} i={i}/>
       )
     })
 
     const mappedVitalTestTotals= this.state.vitalTestTotals.map((total, i)=>{
       return(
-        <React.Fragment key={i}>
-         <select value={this.state.vitaltest} onChange={this.handleVitalTestChange}>
-          <option value='resting heart rate'>Resting heart rate</option>
-          </select>
-          <input></input>
-          <button onClick={(e)=>this.deleteVitalTest(e,i)}>Delete Test</button>
-        </React.Fragment>
+       <VitalTestSelection handleVitalTestValue={this.handleVitalTestValue} deleteVitalTest={this.deleteVitalTest} i={i}/>
       )
     })
     return(
       
-      <div>
-        <p>New Chart</p>
+      <div className='chart_page'>
+       <DocNav/>
+        <h1 className='create_title'>Create New Chart</h1>
         
         <form>
         <label>
         Choose test type:
         
-          <select value={this.state.testtype} onChange={this.handleTestTypeChange}>
+          <select className='chart_dropdown' value={this.state.testtype} onChange={this.handleTestTypeChange}>
           <option value=''></option>
           <option value='bloodwork'>Blood work</option>
           <option value='vitals'>Vitals</option>
@@ -138,8 +167,8 @@ class  NewChart extends Component  {
         {this.state.testtype ==='vitals' ?
         <form>
           {mappedVitalTestTotals}
-          <button onClick={()=>this.setState({vitalTestTotals: [...this.state.vitalTestTotals, 1]})}>Add test</button>
-          <button disabled={this.state.vitalSubmit}>Chart It Real Good</button>
+          <button onClick={(e)=>this.handleAddVitalTest(e, this.state.vitaltest, this.state.vitalValue)}>Add test</button>
+          <button disabled={this.state.vitalSubmit} onClick={this.handleVitalSubmit}>Chart It Real Good</button>
         </form>
         :
         null

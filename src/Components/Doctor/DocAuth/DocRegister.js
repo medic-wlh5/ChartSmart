@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import { updateDoctor } from '../../../redux/doctorReducer';
 import { connect } from 'react-redux';
+import './DocForm.css'
 
 class DocRegister extends Component {
 	constructor(props) {
@@ -46,8 +47,15 @@ class DocRegister extends Component {
 
 	render() {
 		return (
-			<div>
-				<form onSubmit={this.onSubmit}>
+			<div className='reg_page'>
+				<div class='ripple-background'>
+                  <div class='circle xxlarge shade1'></div>
+                  <div class='circle xlarge shade2'></div>
+                  <div class='circle large shade3'></div>
+                  <div class='circle mediun shade4'></div>
+                  <div class='circle small shade5'></div>
+                </div>
+				<form className='login_fields' onSubmit={this.onSubmit}>
 					<input
 						name='first_name'
 						value={this.state.first_name}

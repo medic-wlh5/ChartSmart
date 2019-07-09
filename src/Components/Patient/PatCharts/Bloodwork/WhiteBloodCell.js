@@ -49,7 +49,7 @@ class WhiteBloodCell extends Component {
 		})
 
 		if (typeof myLineChart !== 'undefined') myLineChart.destroy();
-
+		var pointBackgroundColors=[]
 		myLineChart = new Chart(myChartRef, {
 			type: 'line',
 			data: {
@@ -61,6 +61,7 @@ class WhiteBloodCell extends Component {
 						data: mappedDataValue,
 						fill: false,
 						borderColor: '#6610f2',
+						pointBackgroundColor: pointBackgroundColors
 					}
 				],
 			},
@@ -97,6 +98,16 @@ class WhiteBloodCell extends Component {
 				}
 			},
 		});
+
+		//3.4-9.6 is a healthy range
+		for (let i = 0; i < myLineChart.data.datasets[0].data.length; i++) {
+			if (myLineChart.data.datasets[0].data[i] >= 3.4 && myLineChart.data.datasets[0].data[i] <= 9.6 ){
+				pointBackgroundColors.push("#ffff00");
+			} else {
+				pointBackgroundColors.push("#f58368");
+			}
+		}
+		myLineChart.update();
 	};
 
 	render() {

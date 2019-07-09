@@ -8,13 +8,15 @@ export default class BloodTestSelection extends Component {
      }
  }  
 
- handleBloodTestChange=(e)=>{
+ handleBloodTest=(e)=>{
     this.setState({bloodtest: e.target.value})
+    this.props.handleBloodTestChange(e.target.value)
   }
     render() {
+       
         return (
         <>    
-        <select value={this.state.bloodtest} onChange={this.handleBloodTestChange}>
+        <select value={this.state.bloodtest} onChange={this.handleBloodTest}>
           <option value=''>Choose Blood Test</option>
           <option value='white blood cell count'> White blood cell count</option>
           <option value='TSH'>TSH</option>

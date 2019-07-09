@@ -33,7 +33,14 @@ class  NewChart extends Component  {
    this.setState({testtype: e.target.value})
  }
 
+ handleBloodTestChange=(value)=>{
 
+  this.setState({bloodtest: value})
+}
+handleVitalTestChange=(value)=>{
+
+  this.setState({vitaltest: value})
+}
 
 
  deleteBloodTest=(e, i)=>{
@@ -99,20 +106,32 @@ class  NewChart extends Component  {
  }
 
  handleBloodSubmit=(e)=>{
-   const {bloodTestValues}= this.state
-   const visitId= this.props.doctor.visitId
-   console.log(visitId)
-   axios.post('/api/newchart/bloodwork', {bloodTestValues, visitId})
-   .then((res)=>{
-     toast('you did it')
-      console.log(res)
-   })
-   .catch(err=>{
-     console.log(err)
-   })
+   e.preventDefault()
+ 
+   if(this.state.bloodtest ){
+    const bloodTestsToChart={testName: this.state.bloodtest, testValue: this.state.bloodValue}
+    this.state.bloodTestValues.push(bloodTestsToChart)
+   }
+   console.log(this.state.bloodTestValues)
+  //  const {bloodTestValues}= this.state
+  //  const visitId= this.props.doctor.visitId
+   
+  //  axios.post('/api/newchart/bloodwork', {bloodTestValues, visitId})
+  //  .then((res)=>{
+  //    toast('you did it')
+  //     console.log(res)
+  //  })
+  //  .catch(err=>{
+  //    console.log(err)
+  //  })
  }
 
  handleVitalSubmit=(e)=>{
+
+  if(this.state.vitaltest ){
+    const bloodTestsToChart={testName: this.state.bloodtest, testValue: this.state.bloodValue}
+    this.state.bloodTestValues.push(bloodTestsToChart)
+   }
    const {vitalTestValues}= this.state
    const visitId= this.props.doctor.visitId
 
@@ -135,9 +154,10 @@ class  NewChart extends Component  {
 
     const mappedVitalTestTotals= this.state.vitalTestTotals.map((total, i)=>{
       return(
-       <VitalTestSelection handleVitalTestValue={this.handleVitalTestValue} deleteVitalTest={this.deleteVitalTest} i={i}/>
+       <VitalTestSelection handleVitalTestValue={this.handleVitalTestValue} deleteVitalTest={this.deleteVitalTest} i={i} handleVitalTestChange={this.handleVitalTestChange}/>
       )
     })
+    console.log(this.state)
     return(
       
       <div className='chart_page'>

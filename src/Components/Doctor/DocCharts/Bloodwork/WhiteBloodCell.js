@@ -49,7 +49,8 @@ class WhiteBloodCell extends Component {
         })
         
 		if (typeof myLineChart !== 'undefined') myLineChart.destroy();
-        var pointBackgroundColors=[]
+		
+		
 		myLineChart = new Chart(myChartRef, {
 			type: 'line',
 			data: {
@@ -61,7 +62,8 @@ class WhiteBloodCell extends Component {
 						data: mappedDataValue,
 						fill: false,
                         borderColor: '#6610f2',
-                        backgroundColor: "#FFF"
+						backgroundColor: "#FFF"
+						
 					},
 					{
 					
@@ -107,9 +109,10 @@ class WhiteBloodCell extends Component {
                 
 			},
         });
-        
+       
       
 	};
+	
 
 	render() {
         console.log(this.props)

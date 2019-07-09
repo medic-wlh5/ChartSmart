@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import Chart from 'chart.js';
 import axios from 'axios';
 import { connect } from 'react-redux';
+import './CReactiveProtein.css'
 
 let myLineChart;
 
@@ -50,6 +51,8 @@ class CReactiveProtein extends Component {
 
 		if (typeof myLineChart !== 'undefined') myLineChart.destroy();
 
+		
+
 		myLineChart = new Chart(myChartRef, {
 			type: 'line',
 			data: {
@@ -59,25 +62,30 @@ class CReactiveProtein extends Component {
 					{
 						label: 'C Reactive Protein',
 						data: mappedDataValue,
-						fill: false,
-						borderColor: '#6610f2',
+						fill: true,
+						borderColor: 'white',
+						backgroundColor: '#FC2F70',
 					}
 				],
 			},
+
+			//Customize chart options
 			options: {
-				//Customize chart options
+				responsive: true,
+
 				title: {
 					dispaly: true,
 					text: 'C Reactive Protein',
 					fontSize: 25,
 				},
 				legend: {
-					position: 'right',
+					position: 'bottom',
 					labels: {
-						fontColor: '#000',
+						fontColor: '#FFFFFF',
 					},
 				},
 				layout: {
+					color: 'white',
 					padding: {
 						left: 50,
 						right: 0,
@@ -92,6 +100,14 @@ class CReactiveProtein extends Component {
 					yAxes:[{
 						ticks:{
 							beginAtZero: true
+						},
+						gridLines: {
+							color: '#fff'
+						}
+					}],
+					xAxes:[{
+						gridLines: {
+							color: '#fff'
 						}
 					}]
 				}
@@ -102,7 +118,7 @@ class CReactiveProtein extends Component {
 	render() {
 		return (
 			<div className='graphContainer'>
-				<canvas id='myChart' ref={this.chartRef} />
+				<canvas className='crp_chart' id='myChart' ref={this.chartRef} height='400' width='900'/>
 			</div>
 		);
 	}

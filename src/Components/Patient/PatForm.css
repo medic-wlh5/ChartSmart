@@ -1,15 +1,22 @@
+.pat_log{
+  height: 100vh
+}
+
+.pat_reg{
+  height: 100vh;
+}
+
 .login_fields{
     display: flex;
     flex-direction: column;
     height: 600px;
     width: 350px;
-    background-image: linear-gradient(to top left, rgb(125, 200, 253), rgb(255, 255, 255));
     margin: auto;
     margin-top: 3em
  }
  
  form {
-     margin-top: 5em
+     margin-top: 5em;
  }
  
  .login_fields > input{
@@ -20,7 +27,6 @@
      margin: auto;
      width: 11rem;
      background: white;
-     color: black;
      text-transform: none;
      border: 2px solid white;
      font-weight: bold;
@@ -33,7 +39,6 @@
    position: relative;
    font-size: 15px;
    font-family: inherit;
-   color: black;
    padding: 1em 1em;
    outline: none;
    border: none;
@@ -73,7 +78,6 @@
      margin: auto;
      width: 11rem;
      background: white;
-     color: black;
      border: 2px solid white;
      font-weight: bold;
  }
@@ -125,7 +129,7 @@
    }  
  
    body{
-   background-color: #5FBBFF;
+   background-image: linear-gradient(to top right, rgb(117, 0, 250), rgb(21, 252, 221));
    max-height: 100%;  
    overflow: hidden; 
  }

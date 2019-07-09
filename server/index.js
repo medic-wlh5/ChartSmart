@@ -39,5 +39,6 @@ app.get('/api/getcase/:docId', doc_ctrl.getCaseId)
 app.post('/api/newvisit', doc_ctrl.createVisit)
 app.post('/api/newchart/bloodwork', doc_ctrl.chartBloodwork)
 app.post('/api/newchart/vitals', doc_ctrl.chartVitals)
+//hitting all the same points on both sides of the tree
 app.get('/api/bloodwork/:id', pat_ctrl.getBloodTests)
 app.get('/api/vitals/:id', pat_ctrl.getVitalTests)

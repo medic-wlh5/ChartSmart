@@ -47,7 +47,7 @@ class DocRegister extends Component {
 
 	render() {
 		return (
-			<div>
+			<div className='reg_page'>
 				<div class='ripple-background'>
                   <div class='circle xxlarge shade1'></div>
                   <div class='circle xlarge shade2'></div>

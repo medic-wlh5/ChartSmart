@@ -3,10 +3,8 @@
     width: 130px;
     display: flex;
     flex-direction: column;
-    background-image: linear-gradient(to bottom left, rgb(255, 144, 179), #FC2F70);
+    background: transparent;
     justify-content: space-evenly;    
-    box-shadow: 5px 5px 15px ; 
-    color: rgb(163, 163, 163);
   }
   
   .pat_icons{

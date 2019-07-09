@@ -3,6 +3,10 @@ import {connect} from 'react-redux'
 import axios from 'axios'
 import BloodTestSelection from './BloodTestSelection';
 import VitalTestSelection from './VitalTestSelection';
+import 'react-toastify/dist/ReactToastify.min.css';
+import { ToastContainer, toast } from 'react-toastify'
+import './NewChart.css'
+import DocNav from '../DocNav/DocNav'
 
 
 class  NewChart extends Component  {
@@ -100,6 +104,7 @@ class  NewChart extends Component  {
    console.log(visitId)
    axios.post('/api/newchart/bloodwork', {bloodTestValues, visitId})
    .then((res)=>{
+     toast('you did it')
       console.log(res)
    })
    .catch(err=>{
@@ -135,14 +140,15 @@ class  NewChart extends Component  {
     })
     return(
       
-      <div>
-        <p>Create New Chart</p>
+      <div className='chart_page'>
+       <DocNav/>
+        <h1 className='create_title'>Create New Chart</h1>
         
         <form>
         <label>
         Choose test type:
         
-          <select value={this.state.testtype} onChange={this.handleTestTypeChange}>
+          <select className='chart_dropdown' value={this.state.testtype} onChange={this.handleTestTypeChange}>
           <option value=''></option>
           <option value='bloodwork'>Blood work</option>
           <option value='vitals'>Vitals</option>

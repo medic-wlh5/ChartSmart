@@ -35,7 +35,7 @@ class DocLogin extends Component {
 
 	render() {
 		return (
-			<>
+			<div className='log_page'>
 			<div class='ripple-background'>
 					<div class='circle xxlarge shade1' />
 					<div class='circle xlarge shade2' />
@@ -63,7 +63,7 @@ class DocLogin extends Component {
 				</Link>
 				</form>
 			
-			</>
+			</div>
 		);
 	}
 }

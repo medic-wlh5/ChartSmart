@@ -16,7 +16,8 @@ class DocDash extends Component {
 		return (
 			<div className='page'>
 				<DocNav/>
-				<div className='container'><img className='doc_img' src={Docs} height='150' width='500'></img>
+				<h1 className='dash_title'>New Visit</h1>
+				<div className='container'>
 				<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
 				<Link className='clip' to='/newvisit'>
 				<button className='clip'><span>New Visit</span><img src={VisitBtn} height='40px' width='30px'></img></button>

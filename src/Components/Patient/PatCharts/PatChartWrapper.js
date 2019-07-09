@@ -5,6 +5,7 @@ import CReactive from "./Bloodwork/CReactiveProtein";
 import RestingHeartRate from "./Vitals/RestingHeartRate";
 import Temperature from "./Vitals/Temperature";
 import Weight from "./Vitals/Weight";
+import PatNav from '../PatNav/PatNav'
 
 export default class PatChartWrapper extends Component {
   constructor(props) {
@@ -94,7 +95,8 @@ export default class PatChartWrapper extends Component {
     console.log(this.state);
 
     return (
-      <div>
+      <div className='page'>
+        <PatNav/>
         <form>
           <label>
             Choose test type:

@@ -39,7 +39,7 @@ class PatientLogin extends Component {
 	render() {
 		console.log(this.state.params);
 		return (
-			<>
+			<div className='pat_log'>
 				<div class='ripple-background'>
 					<div class='circle xxlarge shade1' />
 					<div class='circle xlarge shade2' />
@@ -66,7 +66,7 @@ class PatientLogin extends Component {
 						<button>Need an Account?</button>
 					</Link>
 				</form>
-			</>
+			</div>
 		);
 	}
 }

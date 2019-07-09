@@ -1,11 +1,19 @@
+.log_page{
+  height: 100vh
+}
+
+.reg_page{
+  height: 100vh
+}
+
 .login_fields{
     display: flex;
     flex-direction: column;
-    height: 600px;
+    height: 300px;
     width: 350px;
-    background-image: linear-gradient(to top left, rgb(125, 200, 253), rgb(255, 255, 255));
+    background: transparent;
     margin: auto;
-    margin-top: 3em
+    margin-top: 3em;
  }
  
  form {
@@ -20,7 +28,7 @@
      margin: auto;
      width: 11rem;
      background: white;
-     color: black;
+     color: white;
      text-transform: none;
      border: 2px solid white;
      font-weight: bold;
@@ -29,15 +37,17 @@
  input:focus {outline:0;}
  
  .login_fields > button{
-     z-index: 1;
-   position: relative;
-   font-size: 15px;
-   font-family: inherit;
-   color: black;
-   padding: 1em 1em;
-   outline: none;
-   border: none;
-   background: transparent;
+  z-index: 1;
+  position: relative;
+  font-size: 15px;
+  font-family: inherit;
+  color: white;
+  width: 180px;
+  padding: 1em 1em;
+  outline: none;
+  border: 2px solid white;
+  background: transparent;
+  margin: auto
  }
  
  .login_fields > button::before {
@@ -72,8 +82,8 @@
      padding: 0.5rem 0;
      margin: auto;
      width: 11rem;
-     background: white;
-     color: black;
+     background: transparent;
+     color: white;
      border: 2px solid white;
      font-weight: bold;
  }
@@ -84,7 +94,7 @@
      display: flex;
      flex-direction: column;
      width: 350px;
-     text-decoration: none
+     text-decoration: none;
  }
  
  .register_btn > button{
@@ -92,11 +102,14 @@
    position: relative;
    font-size: 15px;
    font-family: inherit;
-   color: black;
+   color: white;
+   width: 180px;
+   margin-top: .6em;
    padding: 1em 1em;
    outline: none;
-   border: none;
+   border: 2px solid white;
    background: transparent;
+   margin: auto
  }
  
  .register_btn > button::before {
@@ -122,13 +135,7 @@
    .register_btn > button:hover::before {
      transform-origin: center left;
      transform: scaleX(1);
-   }  
- 
-   body{
-   max-height: 100%;  
-   overflow: hidden; 
- }
- 
+   } 
  
  .circle{
    position: absolute;

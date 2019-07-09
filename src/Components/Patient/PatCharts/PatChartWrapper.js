@@ -5,7 +5,8 @@ import CReactive from "./Bloodwork/CReactiveProtein";
 import RestingHeartRate from "./Vitals/RestingHeartRate";
 import Temperature from "./Vitals/Temperature";
 import Weight from "./Vitals/Weight";
-import PatNav from '../PatNav/PatNav'
+import PatNav from '../PatNav/PatNav';
+import './PatChartWrapper.css'
 
 export default class PatChartWrapper extends Component {
   constructor(props) {
@@ -97,6 +98,8 @@ export default class PatChartWrapper extends Component {
     return (
       <div className='page'>
         <PatNav/>
+        <div className='pat_chart_page'>
+        <div className="chartContainer">
         <form>
           <label>
             Choose test type:
@@ -110,30 +113,31 @@ export default class PatChartWrapper extends Component {
             </select>
           </label>
         </form>
-        <div className="chartContainer">
+        
           {this.state.test === "bloodwork" ? (
-            <div>
-              <button className="whiteBloodCell" onClick={this.showWhite}>
+            <div className='pat_chart_btns'>
+              <button className="pat_btns" onClick={this.showWhite}>
                 White Blood Cell Menu
               </button>
-              <button className="TSH" onClick={this.showTSH}>
+              <button className="pat_btns" onClick={this.showTSH}>
                 TSH
               </button>
-              <button className="cReactive" onClick={this.showCReactive}>
+              <button className="pat_btns" onClick={this.showCReactive}>
                 C Reactive Protein
               </button>
             </div>
           ) : this.state.test === "vitals" ? (
-            <div>
-              <button className="restingHeartRate" onClick={this.showRestingHeartRate}>
+            <div className='pat_chart_btns'>
+              <button className="pat_btns" onClick={this.showRestingHeartRate}>
                 Resting Heart Rate
               </button>
-              <button className="temperature" onClick={this.showTemperature}>
+              <button className="pat_btns" onClick={this.showTemperature}>
                 Temperature
               </button>
-              <button className="weight" onClick={this.showWeight}>
+              <button className="pat_btns" onClick={this.showWeight}>
                 Weight
               </button>
+              
             </div>
 		  ) : null
 		}
@@ -145,6 +149,7 @@ export default class PatChartWrapper extends Component {
         <div>{this.state.restingHeartRate ? <RestingHeartRate /> : null}</div>
         <div>{this.state.temperature ? <Temperature /> : null}</div>
         <div>{this.state.weight ? <Weight /> : null}</div>
+        </div>
       </div>
     );
   }

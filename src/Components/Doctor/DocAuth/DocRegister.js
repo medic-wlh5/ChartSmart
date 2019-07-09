@@ -4,9 +4,6 @@ import { updateDoctor } from '../../../redux/doctorReducer';
 import { connect } from 'react-redux';
 import './DocForm.css'
 
-// import 'react-toastify/dist/ReactToastify.min.css';
-// import { ToastContainer, toast } from 'react-toastify'
-
 class DocRegister extends Component {
 	constructor(props) {
 		super(props);
@@ -50,7 +47,7 @@ class DocRegister extends Component {
 
 	render() {
 		return (
-			<div>
+			<div className='reg_page'>
 				<div class='ripple-background'>
                   <div class='circle xxlarge shade1'></div>
                   <div class='circle xlarge shade2'></div>

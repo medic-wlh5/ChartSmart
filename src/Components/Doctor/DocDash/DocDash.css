@@ -2,20 +2,28 @@
     display: flex;
     width: 100vw;
     height: 100vh;
-    background: white
-}
+    background-image: linear-gradient(to top right, rgb(117, 0, 250), rgb(21, 252, 221));}
 
+.dash_title{
+  font-size: 50px;
+  font-weight: 100;
+  height: 60px
+}
+    
 .container{
     margin: auto;
-    box-shadow: 5px 5px 15px ; 
-    color: rgb(163, 163, 163);
+    /* box-shadow: 5px 5px 5px white;  */
+    /* color: rgb(163, 163, 163); */
     width: 500px;
+    height: 90px;
+    /* background-color: white */
 }
 
 
 .clip {
     border-radius: 4px;
-    background-color: #0396FF;
+    /* background-color: #0396FF; */
+    background: transparent;
     border: none;
     color: white;
     text-align: center;

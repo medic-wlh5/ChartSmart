@@ -103,9 +103,9 @@ class NewVisit extends Component {
 		return (
 			<div className='page'>
 				<DocNav/>
-				<div className='visit_container'><img src={SitDown} height='200' width='450'></img>
+				<h1 className='patient_title'>Enter Patient Name</h1>
+				<div className='visit_container'>
 				<div className='box1'>
-				<p>Enter Patient Name</p>
 				<input onChange={this.filterPatients} type='text' ref={this.suggestionInput}  />
 				{
 					this.state.suggestionDropDown ?

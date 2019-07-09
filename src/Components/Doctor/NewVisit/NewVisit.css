@@ -4,37 +4,50 @@
     height: 100vh;
 }
 
+.patient_title{
+    margin: 2em;
+    font-size: 50px;
+    font-weight: 100
+}
+
 .visit_container{
-    margin: auto;
-    box-shadow: 5px 5px 15px ; 
-    color: rgb(163, 163, 163);
+    margin-top: 7em;
+    /* display: flex;
+    flex-direction: row */
+    /* box-shadow: 5px 5px 15px ; 
+    color: rgb(163, 163, 163); */
 }
 
 .box1{
-    background: white;
+    background: transparent;
     height: 20vh;
-    
 }
 
-.box1 > p{
+/* .box1 > p{
     border: 2px solid black;
     margin: auto;
     border: none;
     display: flex;
     justify-content: space-evenly;
-    color: black
+    color: white
+} */
+
+h5{
+    color: white;
+    margin:auto
 }
 
 
+
+
 .box1 > input{
-    background: white;
     margin: auto;
     display: flex;
     justify-content: space-evenly;
     width: 11rem;
-    background: white;
-    color: black;
-    border: 2px solid black;
+    background: transparent;
+    color: white;
+    border: 2px solid white;
     font-size: 12px;
     padding: 0.5rem 0;
 }
@@ -42,7 +55,7 @@
 
 
 .box2{
-    background: white;
+    /* background: white; */
     height: 30vh;
     /* border: 2px solid black; */
     display: flex;
@@ -56,18 +69,17 @@
     border: none;
     display: flex;
     justify-content: space-evenly;
-    color: black
+    color: white
 }
 
 .box2 > input{
-    background: white;
+    background: transparent;
     margin: auto;
     display: flex;
     justify-content: space-evenly;
     width: 11rem;
-    background: white;
     color: black;
-    border: 2px solid black;
+    border: 2px solid white;
     font-weight: bold;
     font-size: 12px;
     padding: 0.5rem 0;
@@ -75,8 +87,8 @@
 
 .sug_box{
     list-style: none;
-    color: black;
-    background: white;
+    color: white;
+    background: transparent;
     margin: .3em;
 }
 
@@ -85,11 +97,14 @@
   position: relative;
   font-size: 15px;
   font-family: inherit;
-  color: black;
+  color: white;
+  width: 180px;
   padding: 1em 1em;
+  margin: auto;
   outline: none;
   border: none;
   background: transparent;
+  border: 2px solid white;
 }
 
 .box2 > button::before {
@@ -100,7 +115,7 @@
     bottom: 0;
     left: 0;
     right: 0;
-    background-color: #5FBBFF;
+    background-color: #FC2F70;
     transform-origin: center right;
     transform: scaleX(0);
     transition: transform 0.25s ease-in-out;

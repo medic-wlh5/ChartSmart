@@ -7,6 +7,8 @@ import Temperature from './Vitals/Temperature'
 import RestingHeartRate from './Vitals/RestingHeartRate'
 import {connect} from 'react-redux'
 import axios from 'axios';
+import './DocChartWrapper.css'
+import DocNav from '../DocNav/DocNav'
 
 
 class DocChartWrapper extends Component {
@@ -121,7 +123,8 @@ class DocChartWrapper extends Component {
         })
         
 		return (
-			<div>
+			<div className='view_chart_page'>
+                <DocNav/>
                 <div>
                 <h1>View Patient Charts</h1>
                 <h4>Select Patient to view health charts</h4>

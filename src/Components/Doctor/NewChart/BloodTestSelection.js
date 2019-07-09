@@ -12,6 +12,7 @@ export default class BloodTestSelection extends Component {
     this.setState({bloodtest: e.target.value})
   }
     render() {
+        console.log(this.state.bloodtest)
         return (
         <>    
         <select value={this.state.bloodtest} onChange={this.handleBloodTestChange}>

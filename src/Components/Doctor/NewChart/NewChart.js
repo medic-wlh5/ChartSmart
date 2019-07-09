@@ -99,17 +99,23 @@ class  NewChart extends Component  {
  }
 
  handleBloodSubmit=(e)=>{
-   const {bloodTestValues}= this.state
-   const visitId= this.props.doctor.visitId
-   console.log(visitId)
-   axios.post('/api/newchart/bloodwork', {bloodTestValues, visitId})
-   .then((res)=>{
-     toast('you did it')
-      console.log(res)
-   })
-   .catch(err=>{
-     console.log(err)
-   })
+   e.preventDefault()
+   console.log(this.state.bloodTest)
+   if(this.state.bloodTestValues.length < 1){
+    const bloodTestsToChart={testName: this.state.bloodTest, testValue: this.state.bloodValue}
+    this.state.bloodTestValues.push(bloodTestsToChart)
+   }
+  //  const {bloodTestValues}= this.state
+  //  const visitId= this.props.doctor.visitId
+   
+  //  axios.post('/api/newchart/bloodwork', {bloodTestValues, visitId})
+  //  .then((res)=>{
+  //    toast('you did it')
+  //     console.log(res)
+  //  })
+  //  .catch(err=>{
+  //    console.log(err)
+  //  })
  }
 
  handleVitalSubmit=(e)=>{
@@ -138,6 +144,7 @@ class  NewChart extends Component  {
        <VitalTestSelection handleVitalTestValue={this.handleVitalTestValue} deleteVitalTest={this.deleteVitalTest} i={i}/>
       )
     })
+    console.log(this.state)
     return(
       
       <div className='chart_page'>

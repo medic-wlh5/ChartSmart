@@ -33,7 +33,14 @@ class  NewChart extends Component  {
    this.setState({testtype: e.target.value})
  }
 
+ handleBloodTestChange=(value)=>{
 
+  this.setState({bloodtest: value})
+}
+handleVitalTestChange=(value)=>{
+
+  this.setState({vitaltest: value})
+}
 
 
  deleteBloodTest=(e, i)=>{
@@ -100,11 +107,12 @@ class  NewChart extends Component  {
 
  handleBloodSubmit=(e)=>{
    e.preventDefault()
-   console.log(this.state.bloodTest)
-   if(this.state.bloodTestValues.length < 1){
-    const bloodTestsToChart={testName: this.state.bloodTest, testValue: this.state.bloodValue}
+ 
+   if(this.state.bloodtest ){
+    const bloodTestsToChart={testName: this.state.bloodtest, testValue: this.state.bloodValue}
     this.state.bloodTestValues.push(bloodTestsToChart)
    }
+   console.log(this.state.bloodTestValues)
   //  const {bloodTestValues}= this.state
   //  const visitId= this.props.doctor.visitId
    
@@ -119,6 +127,11 @@ class  NewChart extends Component  {
  }
 
  handleVitalSubmit=(e)=>{
+
+  if(this.state.vitaltest ){
+    const bloodTestsToChart={testName: this.state.bloodtest, testValue: this.state.bloodValue}
+    this.state.bloodTestValues.push(bloodTestsToChart)
+   }
    const {vitalTestValues}= this.state
    const visitId= this.props.doctor.visitId
 
@@ -141,7 +154,7 @@ class  NewChart extends Component  {
 
     const mappedVitalTestTotals= this.state.vitalTestTotals.map((total, i)=>{
       return(
-       <VitalTestSelection handleVitalTestValue={this.handleVitalTestValue} deleteVitalTest={this.deleteVitalTest} i={i}/>
+       <VitalTestSelection handleVitalTestValue={this.handleVitalTestValue} deleteVitalTest={this.deleteVitalTest} i={i} handleVitalTestChange={this.handleVitalTestChange}/>
       )
     })
     console.log(this.state)

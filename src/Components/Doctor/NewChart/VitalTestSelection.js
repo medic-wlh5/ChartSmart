@@ -8,8 +8,9 @@ export default class VitalTestSelection extends Component {
         }
     }
 
-handleVitalTestChange=(e)=>{
+handleVitalTest=(e)=>{
     this.setState({vitaltest: e.target.value})
+    this.props.handleVitalTestChange(e.target.value)
       }
 
     render() {

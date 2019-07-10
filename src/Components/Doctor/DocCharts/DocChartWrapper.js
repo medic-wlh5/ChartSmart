@@ -158,6 +158,7 @@ class DocChartWrapper extends Component {
 				<div className='chartContainer'>
                 {this.state.test === 'bloodwork' ?
                 <div>
+                    
                     <div>
 					    <button className='whiteBloodCell' onClick={this.showWhite}>
 						White Blood Cell Chart
@@ -173,7 +174,9 @@ class DocChartWrapper extends Component {
                 {this.state.whitebloodcell ? <WhiteBloodCell id={this.state.selectedPatient.id} /> 
                 : null}
                 
+              
                 </div>
+                
                 <div>
                     {this.state.TSH ? 
                     <TSH id={this.state.selectedPatient.id}/> : null}

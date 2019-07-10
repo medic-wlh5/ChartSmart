@@ -8,7 +8,7 @@ import { ToastContainer, toast } from 'react-toastify'
 import './NewChart.css'
 import DocNav from '../DocNav/DocNav'
 
-
+toast.configure()
 class  NewChart extends Component  {
  constructor(){
    super()
@@ -45,11 +45,11 @@ handleVitalTestChange=(value)=>{
 
  deleteBloodTest=(e, i)=>{
    e.preventDefault()
-   let filteredBloodTest= this.state.bloodTestTotals.filter((element, index)=> {
-     console.log(index, i)
-    return index !== i;
-   })
-   this.setState({bloodTestTotals: filteredBloodTest})
+   let filterArray = this.state.bloodTestTotals.filter((ele, ind) => {
+     return ind !== i;
+   });
+   console.log(filterArray)
+   this.setState({bloodTestTotals: filterArray})
  }
 
  deleteVitalTest=(e, i)=>{
@@ -108,22 +108,22 @@ handleVitalTestChange=(value)=>{
  handleBloodSubmit=(e)=>{
    e.preventDefault()
  
-   if(this.state.bloodtest ){
+   if(this.state.bloodtest){
     const bloodTestsToChart={testName: this.state.bloodtest, testValue: this.state.bloodValue}
     this.state.bloodTestValues.push(bloodTestsToChart)
    }
    console.log(this.state.bloodTestValues)
-  //  const {bloodTestValues}= this.state
-  //  const visitId= this.props.doctor.visitId
+   const {bloodTestValues}= this.state
+   const visitId= this.props.doctor.visitId
    
-  //  axios.post('/api/newchart/bloodwork', {bloodTestValues, visitId})
-  //  .then((res)=>{
-  //    toast('you did it')
-  //     console.log(res)
-  //  })
-  //  .catch(err=>{
-  //    console.log(err)
-  //  })
+   axios.post('/api/newchart/bloodwork', {bloodTestValues, visitId})
+   .then((res)=>{
+     toast('Bloodwork Charted Sucessfully')
+      this.props.history.push('/doctordashboard')
+   })
+   .catch(err=>{
+     toast('Oops, something went wrong')
+   })
  }
 
  handleVitalSubmit=(e)=>{
@@ -137,10 +137,11 @@ handleVitalTestChange=(value)=>{
 
    axios.post('/api/newchart/vitals', {vitalTestValues, visitId})
    .then((res)=>{
-     console.log(res)
+    toast('Vitals Charted Sucessfully')
+    this.props.history.push('/doctordashboard')
    })
    .catch(err=>{
-     console.log(err)
+    toast('Oops, something went wrong')
    })
  }
 
@@ -148,7 +149,7 @@ handleVitalTestChange=(value)=>{
     
     const mappedBloodTestTotals= this.state.bloodTestTotals.map((total, i )=>{
       return(
-       <BloodTestSelection handleBloodTestChange={this.handleBloodTestChange} handleBloodTestValue={this.handleBloodTestValue} deleteBloodTest={this.deleteBloodTest} i={i}/>
+       <BloodTestSelection key={i} handleBloodTestChange={this.handleBloodTestChange} handleBloodTestValue={this.handleBloodTestValue} deleteBloodTest={this.deleteBloodTest} i={i}/>
       )
     })
 
@@ -157,7 +158,7 @@ handleVitalTestChange=(value)=>{
        <VitalTestSelection handleVitalTestValue={this.handleVitalTestValue} deleteVitalTest={this.deleteVitalTest} i={i} handleVitalTestChange={this.handleVitalTestChange}/>
       )
     })
-    console.log(this.state)
+    console.log(this.state.bloodTestTotals)
     return(
       
       <div className='chart_page'>

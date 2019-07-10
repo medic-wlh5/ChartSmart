@@ -92,9 +92,8 @@ class NewVisit extends Component {
 				<div>
 					
 					<li onClick={(e)=>this.handleSelectedPatient(e,suggestion.id, suggestion)}>
-					{suggestion.first_name}
-					{suggestion.last_name}
-					{suggestion.dob}
+					{`${suggestion.first_name} ${suggestion.last_name}, 
+					${suggestion.dob}`}
 					</li>
 				</div>
 			)

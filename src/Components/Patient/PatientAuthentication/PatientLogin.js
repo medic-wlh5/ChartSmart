@@ -4,8 +4,12 @@ import { withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { updateUser } from '../../../redux/patientReducer';
 import { Link } from 'react-router-dom';
+import 'react-toastify/dist/ReactToastify.min.css';
+import { ToastContainer, toast } from 'react-toastify'
 import '../PatForm.css';
 
+
+toast.configure()
 class PatientLogin extends Component {
 	constructor() {
 		super();
@@ -25,7 +29,7 @@ class PatientLogin extends Component {
 				this.props.history.push('/patientdashboard');
 			})
 			.catch(err => {
-				console.log(err);
+				toast('Oh no! It looks like you may have entered incorrect info. Try again!')
 			});
 		this.setState({ email: '', password: '' });
 	};

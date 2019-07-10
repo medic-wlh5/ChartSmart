@@ -40,6 +40,18 @@ class WhiteBloodCell extends Component {
 		const myChartRef = this.chartRef.current.getContext('2d');
 		const { data, average, labels } = this.props;
 
+		let gradientStroke = myChartRef.createLinearGradient(500, 0, 100, 0);
+		
+		gradientStroke.addColorStop(0, "#F87FF4");
+		gradientStroke.addColorStop(0.2, "#94d973");
+		gradientStroke.addColorStop(0.5, "#fad874");
+		gradientStroke.addColorStop(1, "#F080F4");
+		
+
+		let gradientFill = myChartRef.createLinearGradient(500, 0, 100, 0);
+		
+		
+
 		const mappedDataValue = this.state.data.map(dataSet => {
 			return dataSet.value
 		})
@@ -50,6 +62,7 @@ class WhiteBloodCell extends Component {
 
 		if (typeof myLineChart !== 'undefined') myLineChart.destroy();
 		var pointBackgroundColors=[]
+		var gradient=[]
 		myLineChart = new Chart(myChartRef, {
 			type: 'line',
 			data: {
@@ -59,8 +72,13 @@ class WhiteBloodCell extends Component {
 					{
 						label: 'White Blood Cell Count',
 						data: mappedDataValue,
-						fill: false,
-						borderColor: '#6610f2',
+						fill: true,
+						backgroundColor: gradientFill,
+						borderColor:               gradient,
+						pointBorderColor:          'white',
+						pointBackgroundColor:      pointBackgroundColors,
+						pointHoverBackgroundColor: pointBackgroundColors,
+						pointHoverBorderColor:     pointBackgroundColors,
 						pointBackgroundColor: pointBackgroundColors
 					}
 				],
@@ -93,6 +111,14 @@ class WhiteBloodCell extends Component {
 					yAxes:[{
 						ticks:{
 							beginAtZero: true
+						},
+						gridLines: {
+							color: '#fff'
+						}
+					}],
+					xAxes:[{
+						gridLines: {
+							color: '#fff'
 						}
 					}]
 				}
@@ -103,8 +129,10 @@ class WhiteBloodCell extends Component {
 		for (let i = 0; i < myLineChart.data.datasets[0].data.length; i++) {
 			if (myLineChart.data.datasets[0].data[i] >= 3.4 && myLineChart.data.datasets[0].data[i] <= 9.6 ){
 				pointBackgroundColors.push("#ffff00");
+				gradient.push(gradientFill.addColorStop(0, 'rgba(255, 255, 0, 0.6)'));
 			} else {
 				pointBackgroundColors.push("#f58368");
+				gradientFill.addColorStop(1, "rgba(43, 153, 247, 0.6)");
 			}
 		}
 		myLineChart.update();
@@ -113,7 +141,7 @@ class WhiteBloodCell extends Component {
 	render() {
 		return (
 			<div className='graphContainer'>
-				<canvas height='400' width='400' id='myChart' ref={this.chartRef} />
+				<canvas id='myChart' ref={this.chartRef} height='300' width='700' />
 			</div>
 		);
 	}

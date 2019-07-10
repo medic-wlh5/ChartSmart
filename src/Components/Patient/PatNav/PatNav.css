@@ -58,15 +58,15 @@
     bottom: 0;
     left: 0;
     right: 0;
-    background-color: white;
-    transform-origin: center right;
+    background-color: #FC2F70;
+    transform-origin: center left;
     transform: scaleX(0);
     transition: transform 0.25s ease-in-out;
   }
   
   .pat_logout > button:hover {
     cursor: pointer;
-    color:#FC2F70;
+    color:white;
     transition: 0.15s
   }
   

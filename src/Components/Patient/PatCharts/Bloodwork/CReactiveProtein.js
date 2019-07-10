@@ -104,7 +104,7 @@ class CReactiveProtein extends Component {
 					
 				},
 				legend: {
-					display: true,
+					// display: true,
 					position: 'top',
 					labels: {
 						fontColor: '#FFFFFF',

@@ -40,6 +40,18 @@ class TSH extends Component {
 		const myChartRef = this.chartRef.current.getContext('2d');
 		const { data, average, labels } = this.props;
 
+		let gradientStroke = myChartRef.createLinearGradient(500, 0, 100, 0);
+		
+		gradientStroke.addColorStop(0, "#F87FF4");
+		gradientStroke.addColorStop(0.2, "#94d973");
+		gradientStroke.addColorStop(0.5, "#fad874");
+		gradientStroke.addColorStop(1, "#F080F4");
+		
+
+		let gradientFill = myChartRef.createLinearGradient(500, 0, 100, 0);
+		gradientFill.addColorStop(0, "rgba(248, 127, 244, 0.6)");
+		gradientFill.addColorStop(1, "rgba(43, 153, 247, 0.6)");
+
 		const mappedDataValue = this.state.data.map(dataSet => {
 			return dataSet.value
 		})
@@ -59,8 +71,13 @@ class TSH extends Component {
 					{
 						label: 'TSH',
 						data: mappedDataValue,
-						fill: false,
-						borderColor: '#6610f2',
+						fill: true,
+						backgroundColor: gradientFill,
+						borderColor:               gradientStroke,
+						pointBorderColor:          'white',
+						pointBackgroundColor:      gradientStroke,
+						pointHoverBackgroundColor: gradientStroke,
+						pointHoverBorderColor:     gradientStroke
 					}
 				],
 			},
@@ -92,6 +109,14 @@ class TSH extends Component {
 					yAxes:[{
 						ticks:{
 							beginAtZero: true
+						},
+						gridLines: {
+							color: '#fff'
+						}
+					}],
+					xAxes:[{
+						gridLines: {
+							color: '#fff'
 						}
 					}]
 				}
@@ -102,7 +127,7 @@ class TSH extends Component {
 	render() {
 		return (
 			<div className='graphContainer'>
-				<canvas id='myChart' ref={this.chartRef} />
+				<canvas id='myChart' ref={this.chartRef} height='300' width='700' />
 			</div>
 		);
 	}

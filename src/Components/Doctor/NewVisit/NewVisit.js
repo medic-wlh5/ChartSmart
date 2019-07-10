@@ -118,7 +118,7 @@ class NewVisit extends Component {
 			
 				{this.state.selectedPatient.id  ?
 				<div className='box2'>
-				<h5>{this.state.selectedPatient.first_name}{this.state.selectedPatient.last_name}{this.state.selectedPatient.dob}</h5>
+				<h5>{`${this.state.selectedPatient.first_name} ${this.state.selectedPatient.last_name}, ${this.state.selectedPatient.dob}`}</h5>
 				<p>Date</p><input placeholder='mm/dd/yyy' name='date' onChange={this.handleDateInput}></input>
 				<button disabled={this.state.disabled} onClick={this.onContinue}>
 					Continue

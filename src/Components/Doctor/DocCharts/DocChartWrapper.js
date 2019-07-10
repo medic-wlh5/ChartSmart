@@ -123,8 +123,9 @@ class DocChartWrapper extends Component {
         })
         
 		return (
-			<div className='view_chart_page'>
+            <div className='page'>
                 <DocNav/>
+			<div className='view_chart_page'>
                 <div>
                 <h1>View Patient Charts</h1>
                 <h4>Select Patient to view health charts</h4>
@@ -237,6 +238,7 @@ class DocChartWrapper extends Component {
                 
                 }
 			</div>
+            </div>
 		);
 	}
 }

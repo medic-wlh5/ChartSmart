@@ -1,4 +1,8 @@
 .view_chart_page{
     height: 100vh;
-    display: flex
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    /* border: 2px dashed yellow; */
+    width: 1240px;
 }

@@ -44,15 +44,17 @@ class CReactiveProtein extends Component {
 
 		let gradientStroke = myChartRef.createLinearGradient(500, 0, 100, 0);
 		
-		gradientStroke.addColorStop(0, "#F87FF4");
-		gradientStroke.addColorStop(0.2, "#94d973");
-		gradientStroke.addColorStop(0.5, "#fad874");
-		gradientStroke.addColorStop(1, "#F080F4");
+		gradientStroke.addColorStop(0, "rgba(87, 255, 80)"); //green
+		gradientStroke.addColorStop(0.5, "rgba(255, 255, 111)");
+		gradientStroke.addColorStop(1, "rgba(248, 94, 94)"); //red
 		
 
-		let gradientFill = myChartRef.createLinearGradient(500, 0, 100, 0);
-		gradientFill.addColorStop(0, "rgba(248, 127, 244, 0.6)");
-		gradientFill.addColorStop(1, "rgba(43, 153, 247, 0.6)");
+		let gradientFill = myChartRef.createLinearGradient(0, 500, 0, 100);
+
+		gradientFill.addColorStop(0, "rgba(87, 255, 80, 0.6)"); //green
+		gradientFill.addColorStop(0.5, "rgba(255, 255, 111, 0.6)"); //yellow
+		gradientFill.addColorStop(1, "rgba(248, 94, 94, 0.6)"); //red
+
 
 		const mappedDataValue = this.state.data.map(dataSet => {
 			return dataSet.value
@@ -63,6 +65,8 @@ class CReactiveProtein extends Component {
 		})
 
 		if (typeof myLineChart !== 'undefined') myLineChart.destroy();
+
+		var pointBackgroundColors=[]
 
 		
 
@@ -77,11 +81,14 @@ class CReactiveProtein extends Component {
 						data: mappedDataValue,
 						fill: true,
 						backgroundColor: gradientFill,
-						borderColor:               gradientStroke,
+						borderColor:               'white',
+						borderWidth: 2,
 						pointBorderColor:          'white',
-						pointBackgroundColor:      gradientStroke,
-						pointHoverBackgroundColor: gradientStroke,
-						pointHoverBorderColor:     gradientStroke
+						pointBackgroundColor:      pointBackgroundColors,
+						pointHoverBackgroundColor: pointBackgroundColors,
+						pointHoverBorderColor:     pointBackgroundColors,
+						pointRadius: 5,
+						pointHoverRadius: 8
 					}
 				],
 			},
@@ -91,13 +98,14 @@ class CReactiveProtein extends Component {
 				responsive: true,
 
 				title: {
-					dispaly: true,
+					display: true,
 					text: 'C Reactive Protein',
 					fontSize: 25,
 					
 				},
 				legend: {
-					position: 'bottom',
+					display: true,
+					position: 'top',
 					labels: {
 						fontColor: '#FFFFFF',
 					},
@@ -131,6 +139,17 @@ class CReactiveProtein extends Component {
 				}
 			},
 		});
+		for (let i = 0; i < myLineChart.data.datasets[0].data.length; i++) {
+			if (myLineChart.data.datasets[0].data[i] < 1  ){
+				pointBackgroundColors.push("rgba(87, 255, 80)");
+			}
+			if (myLineChart.data.datasets[0].data[i] >= 1 && myLineChart.data.datasets[0].data[i] <= 3  ){
+				pointBackgroundColors.push("rgba(255, 255, 111)");
+			} else {
+				pointBackgroundColors.push("rgba(248, 94, 94)");
+			}
+		}
+		myLineChart.update();
 	};
 
 	render() {

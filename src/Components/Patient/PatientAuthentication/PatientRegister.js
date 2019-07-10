@@ -1,8 +1,11 @@
 import React, { Component } from 'react'
 import axios from 'axios'
+import 'react-toastify/dist/ReactToastify.min.css';
+import { ToastContainer, toast } from 'react-toastify'
 import '../PatForm.css'
 // import {withRouter} from 'react-router-dom'
 
+toast.configure()
 class PatientRegister extends Component {
     constructor(){
         super()
@@ -22,7 +25,7 @@ class PatientRegister extends Component {
         axios.post('auth/patientregister', {first_name, last_name, email, password, DOB, doctor_pin}).then((res) => {
             this.props.history.push('/patientdashboard')
         }).catch((err) => {
-            console.log(err)
+            toast('Oh no! Something went wrong, please try again.')
         })
         e.target.first_name.value = ''
         e.target.last_name.value = ''

@@ -1,9 +1,12 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import { updateDoctor } from '../../../redux/doctorReducer';
+import 'react-toastify/dist/ReactToastify.min.css';
+import { ToastContainer, toast } from 'react-toastify'
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 
+toast.configure()
 class DocLogin extends Component {
 	constructor(props) {
 		super(props);
@@ -29,7 +32,7 @@ class DocLogin extends Component {
 				this.props.history.push('/doctordashboard');
 			})
 			.catch(err => {
-				console.log(err);
+				toast('Oh no! It looks like you may have entered incorrect info. Try again!')
 			});
 	};
 

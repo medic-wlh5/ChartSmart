@@ -88,7 +88,7 @@ class Weight extends Component {
 			options: {
 				//Customize chart options
 				title: {
-					dispaly: true,
+					display: true,
 					text: 'Weight',
 					fontSize: 25,
 				},

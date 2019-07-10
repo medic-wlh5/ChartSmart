@@ -33,7 +33,9 @@ class PatNav extends Component {
                         <button className='pat_icons'><img src={Chart} height='60px' width='70px'></img></button>
                         </Link>
                         <button className='pat_icons'><img src={BillPay} height='60px' width='60px'></img></button>
+                        <Link to='./calender' className='pat_nav_icons'>
                         <button className='pat_icons'><img src={Calender} height='60px' width='70px'></img></button>
+                        </Link>
                         <button className='pat_icons'><img src={Chat} height='60px' width='70px'></img></button>
                         <button className='pat_icons'><img src={Profile} height='60px' width='60px'></img></button>
                         <Link to='/' className='pat_logout'>

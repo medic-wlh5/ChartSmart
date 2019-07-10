@@ -1,0 +1,17 @@
+.page-message{
+    height: 100vh;
+    display: flex;
+    
+}
+
+.email-form{
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+.react-contact-form{
+    display: flex;
+    flex-direction: column;
+}

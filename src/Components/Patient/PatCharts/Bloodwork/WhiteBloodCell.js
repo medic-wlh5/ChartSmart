@@ -42,13 +42,13 @@ class WhiteBloodCell extends Component {
 
 		let gradientStroke = myChartRef.createLinearGradient(500, 0, 100, 0);
 		
-		gradientStroke.addColorStop(0, "#F87FF4");
-		gradientStroke.addColorStop(0.2, "#94d973");
-		gradientStroke.addColorStop(0.5, "#fad874");
-		gradientStroke.addColorStop(1, "#F080F4");
+		gradientStroke.addColorStop(0, "rgba(87, 255, 80)"); //green
+		gradientStroke.addColorStop(1, "rgba(248, 94, 94)"); //red
 		
 
-		let gradientFill = myChartRef.createLinearGradient(500, 0, 100, 0);
+		let gradientFill = myChartRef.createLinearGradient(0, 500, 0, 100);
+		gradientFill.addColorStop(0, "rgba(248, 94, 94, 0.6)"); //red
+		gradientFill.addColorStop(1, "rgba(87, 255, 80, 0.6)"); //green
 		
 		
 
@@ -74,19 +74,21 @@ class WhiteBloodCell extends Component {
 						data: mappedDataValue,
 						fill: true,
 						backgroundColor: gradientFill,
-						borderColor:               gradient,
+						borderColor:               'white',
+						borderWidth: 2,
 						pointBorderColor:          'white',
 						pointBackgroundColor:      pointBackgroundColors,
 						pointHoverBackgroundColor: pointBackgroundColors,
 						pointHoverBorderColor:     pointBackgroundColors,
-						pointBackgroundColor: pointBackgroundColors
+						pointRadius: 5,
+						pointHoverRadius: 8
 					}
 				],
 			},
 			options: {
 				//Customize chart options
 				title: {
-					dispy: true,
+					display: true,
 					text: 'White Blood Cell Count',
 					fontSize: 25,
 				},
@@ -128,11 +130,9 @@ class WhiteBloodCell extends Component {
 		//3.4-9.6 is a healthy range
 		for (let i = 0; i < myLineChart.data.datasets[0].data.length; i++) {
 			if (myLineChart.data.datasets[0].data[i] >= 3.4 && myLineChart.data.datasets[0].data[i] <= 9.6 ){
-				pointBackgroundColors.push("#ffff00");
-				gradient.push(gradientFill.addColorStop(0, 'rgba(255, 255, 0, 0.6)'));
+				pointBackgroundColors.push("rgba(87, 255, 80)");
 			} else {
-				pointBackgroundColors.push("#f58368");
-				gradientFill.addColorStop(1, "rgba(43, 153, 247, 0.6)");
+				pointBackgroundColors.push("rgba(248, 94, 94)");
 			}
 		}
 		myLineChart.update();

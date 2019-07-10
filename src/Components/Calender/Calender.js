@@ -1,79 +1,69 @@
 import React, { Component } from 'react'
+import './Calender.css'
+import PatNav from '../Patient/PatNav/PatNav'
 
 export default class Calender extends Component {
     render() {
         return (
-           <div className='cal_page'>
-             <div class="container">
+            <div className='cal_page' >
+            <PatNav/>
+                <div class="jzdbox1 jzdbasf jzdcal">
 
-<div class="calendar-base">
+<div class="jzdcalt">July 2019</div>
 
-  <div class="year">2017</div>
-  
+<span>Su</span>
+<span>Mo</span>
+<span>Tu</span>
+<span>We</span>
+<span>Th</span>
+<span>Fr</span>
+<span>Sa</span>
 
-  <div class="triangle-left"></div>
-  <div class="triangle-right"></div>
 
-  <div class="months">
-    <span class="month-hover">Jan</span>
-    <span class="month-hover">Feb</span> 
-    <span class="month-hover">Mar</span> 
-    <strong class="month-color">Apr</strong>
-    <span class="month-hover">May</span>
-    <span class="month-hover">Jun</span>
-    <span class="month-hover">July</span> 
-    <span class="month-hover">Aug</span> 
-    <span class="month-hover">Sep</span> 
-    <span class="month-hover">Oct</span> 
-    <span class="month-hover">Nov</span> 
-    <span class="month-hover">Dec</span>
-  </div>
-  <hr class="month-line" />
-
-  <div class="days">SUN MON TUE WED THU FRI SAT</div>
-
-  <div class="num-dates">
-
-    <div class="first-week"><span class="grey">26 27 28 29 30 31</span> 01</div>
-    <div class="second-week">02 03 04 05 06 07 08</div>
-    <div class="third-week"> 09 10 11 12 13 14 15</div>
-    <div class="fourth-week"> 16 17 18 19 20 21 22</div>
-    <div class="fifth-week"> 23 24 25 26 <strong class="white">27</strong> 28 29</div>
-    <div class="sixth-week"> 30 <span class="grey">01 02 03 04 05 06</span></div>
-  </div>
-  <div class="event-indicator"></div>
-  <div class="active-day"></div>
-  <div class="event-indicator two"></div>
-
+<span class="jzdb"></span>
+<span class="jzdb"></span>
+<span class="jzdb"></span>
+<span class="jzdb"></span>
+<span class="jzdb"></span>
+<span class="jzdb"></span>
+<span>1</span>
+<span class="date_circle" data-title="My 25th birthday!">2</span>
+<span>3</span>
+<span>4</span>
+<span>5</span>
+<span>6</span>
+<span>7</span>
+<span>8</span>
+<span>9</span>
+<span>10</span>
+<span>11</span>
+<span class="date_circle" data-title="2 month anniversary!">12</span>
+<span>13</span>
+<span>14</span>
+<span>15</span>
+<span>16</span>
+<span>17</span>
+<span>18</span>
+<span>19</span>
+<span>20</span>
+<span>21</span>
+<span class="date_circle" data-title="#MusicMonday - share your favorite song!">22</span>
+<span>23</span>
+<span>24</span>
+<span>25</span>
+<span>26</span>
+<span>27</span>
+<span>28</span>
+<span>29</span>
+<span>30</span>
+<span class="jzdb"></span>
+<span class="jzdb"></span>
+<span class="jzdb"></span>
+<span class="jzdb"></span>
+<span class="jzdb"></span>
+<span class="jzdb"></span>
 </div>
-<div class="calendar-left">
-
-  <div class="hamburger">
-    <div class="burger-line"></div>
-    <div class="burger-line"></div>
-    <div class="burger-line"></div>
-  </div>
-
-
-  <div class="num-date">27</div>
-  <div class="day">THURSDAY</div>
-  <div class="current-events">Current Events
-    <br/>
-    <ul>
-      <li>Day 09 Daily CSS Image</li>
-    </ul>
-    <span class="posts">See post events</span></div>
-
-  <div class="create-event">Create an Event</div>
-  <hr class="event-line" />
-  <div class="add-event"><span class="add">+</span></div>
-
-</div>
-
-</div>
-           </div>
+            </div>
         )
     }
 }
-
-

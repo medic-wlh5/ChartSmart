@@ -42,15 +42,14 @@ class TSH extends Component {
 
 		let gradientStroke = myChartRef.createLinearGradient(500, 0, 100, 0);
 		
-		gradientStroke.addColorStop(0, "#F87FF4");
-		gradientStroke.addColorStop(0.2, "#94d973");
-		gradientStroke.addColorStop(0.5, "#fad874");
-		gradientStroke.addColorStop(1, "#F080F4");
+		gradientStroke.addColorStop(0, "rgba(87, 255, 80)"); //green
+		gradientStroke.addColorStop(1, "rgba(248, 94, 94)"); //red
 		
 
-		let gradientFill = myChartRef.createLinearGradient(500, 0, 100, 0);
-		gradientFill.addColorStop(0, "rgba(248, 127, 244, 0.6)");
-		gradientFill.addColorStop(1, "rgba(43, 153, 247, 0.6)");
+		let gradientFill = myChartRef.createLinearGradient(0, 500, 0, 100);
+		gradientFill.addColorStop(0, "rgba(248, 94, 94, 0.6)"); //red
+		gradientFill.addColorStop(0.5, "rgba(87, 255, 80, 0.6)"); //green
+		gradientFill.addColorStop(1, "rgba(248, 94, 94, 0.6)"); //red
 
 		const mappedDataValue = this.state.data.map(dataSet => {
 			return dataSet.value
@@ -61,6 +60,8 @@ class TSH extends Component {
 		})
 
 		if (typeof myLineChart !== 'undefined') myLineChart.destroy();
+
+		var pointBackgroundColors=[]
 
 		myLineChart = new Chart(myChartRef, {
 			type: 'line',
@@ -73,18 +74,21 @@ class TSH extends Component {
 						data: mappedDataValue,
 						fill: true,
 						backgroundColor: gradientFill,
-						borderColor:               gradientStroke,
+						borderColor:               'white',
+						borderWidth: 2,
 						pointBorderColor:          'white',
-						pointBackgroundColor:      gradientStroke,
-						pointHoverBackgroundColor: gradientStroke,
-						pointHoverBorderColor:     gradientStroke
+						pointBackgroundColor:      pointBackgroundColors,
+						pointHoverBackgroundColor: pointBackgroundColors,
+						pointHoverBorderColor:     pointBackgroundColors,
+						pointRadius: 5,
+						pointHoverRadius: 8
 					}
 				],
 			},
 			options: {
 				//Customize chart options
 				title: {
-					dispaly: true,
+					display: true,
 					text: 'TSH',
 					fontSize: 25,
 				},
@@ -122,6 +126,15 @@ class TSH extends Component {
 				}
 			},
 		});
+
+		for (let i = 0; i < myLineChart.data.datasets[0].data.length; i++) {
+			if (myLineChart.data.datasets[0].data[i] >= .4 && myLineChart.data.datasets[0].data[i] <= 4  ){
+				pointBackgroundColors.push("rgba(87, 255, 80)"); //green
+			} else {
+				pointBackgroundColors.push("rgba(248, 94, 94)"); //red
+			}
+		}
+		myLineChart.update();
 	};
 
 	render() {

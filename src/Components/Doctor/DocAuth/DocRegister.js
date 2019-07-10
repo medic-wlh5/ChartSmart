@@ -2,8 +2,12 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import { updateDoctor } from '../../../redux/doctorReducer';
 import { connect } from 'react-redux';
+import 'react-toastify/dist/ReactToastify.min.css';
 import './DocForm.css'
+import { ToastContainer, toast } from 'react-toastify'
 
+
+toast.configure()
 class DocRegister extends Component {
 	constructor(props) {
 		super(props);
@@ -41,7 +45,7 @@ class DocRegister extends Component {
 				this.props.history.push('/doctordashboard');
 			})
 			.catch(err => {
-				console.log(err);
+				toast('Oops something went wrong!');
 			});
 	};
 

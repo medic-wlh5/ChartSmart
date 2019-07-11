@@ -9,6 +9,7 @@
     "dotenv": "^8.0.0",
     "express": "^4.17.1",
     "express-session": "^1.16.2",
+    "jest": "^24.8.0",
     "massive": "^5.11.0",
     "prop-types": "^15.7.2",
     "react": "^16.8.6",
@@ -46,5 +47,18 @@
     ]
   },
   "main": "server/index.js",
-  "proxy": "http://localhost:3005"
+  "proxy": "http://localhost:3005",
+  "description": "This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).",
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/medic-wlh5/medic.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/medic-wlh5/medic/issues"
+  },
+  "homepage": "https://github.com/medic-wlh5/medic#readme"
 }

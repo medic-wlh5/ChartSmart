@@ -87,6 +87,30 @@
      border: 2px solid white;
      font-weight: bold;
  }
+
+ ::placeholder{
+   color: white;
+   text-transform: capitalize
+ }
+
+ li{
+   list-style: none;
+   text-decoration: none;
+     display: inline-block;
+     font-size: 12px;
+     padding: 0.5rem 0;
+     margin: .3em;
+     width: 11rem;
+     background: transparent;
+     color: white;
+     border: 1px solid white;
+     font-weight: bold;
+ }
+
+ li:hover{
+   cursor: pointer;
+   background: #fc2f70
+ }
  
  input:focus {outline:0;}
  

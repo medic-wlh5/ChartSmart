@@ -1,8 +1,70 @@
 .view_chart_page{
     height: 100vh;
     display: flex;
-    flex-direction: column;
-    justify-content: space-around;
     /* border: 2px dashed yellow; */
     width: 1240px;
+    margin: 1em;
+    display: flex;
+    flex-direction: column
+}
+
+.view_chart_content{
+    width: 1200px;
+    /* height:100px; */
+    /* border: 2px dashed yellow; */
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-evenly;
+    /* position: absolute */
+}
+
+.view_chart_content > h1{
+    font-size: 40px;
+    font-weight: 100;
+    
+}
+
+.view_chart_content > h4{
+    font-size: 20px;
+      font-weight: 200;
+      color: white;
+      /* position: absolute */
+}
+
+.view_chart_content > input{
+    text-decoration: none;
+    display: inline-block;
+    font-size: 12px;
+    padding: 0.5rem 0;
+    margin: auto;
+    width: 9rem;
+    background: transparent;
+    color: white;
+    text-transform: none;
+    border: 1px solid white;
+    font-weight: bold;
+    
+}
+
+.chart_people > form{
+    margin: auto
+}
+
+.chart_people > h4{
+    font-size: 20px;
+    font-weight: 200;
+    color: white;
+    margin: .5em
+}
+
+.suggested_patient{
+    list-style: none;
+    color: white;
+}
+
+.doc_chart_btns{
+    margin: auto;
+    display: flex;
+    justify-content: space-around;
 }

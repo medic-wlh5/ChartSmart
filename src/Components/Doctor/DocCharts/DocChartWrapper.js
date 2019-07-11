@@ -126,13 +126,13 @@ class DocChartWrapper extends Component {
             <div className='page'>
                 <DocNav/>
 			<div className='view_chart_page'>
-                <div>
-                <h1>View Patient Charts</h1>
-                <h4>Select Patient to view health charts</h4>
+                <div className='view_chart_content'>
+                <h1>Patient Charts</h1>
+                <h4>Type Patient Name to Select Their Charts</h4>
 				<input onChange={this.filterPatients} type='text' ref={this.suggestionInput} placeholder='Type in patient name' />
 				{
 					this.state.suggestionDropDown ?
-					<div style={{width: '100vw', height: '30vh'}}> 
+					<div className='suggested_patients'> 
 						{mappedSuggestions}
 					</div>
 					:
@@ -141,9 +141,8 @@ class DocChartWrapper extends Component {
 				</div>
 
                 {this.state.selectedPatient.id ?
-                <div>
-                <h4>{`See Chart for ${this.state.selectedPatient.first_name} ${this.state.selectedPatient.last_name}`}</h4>
-				<form>
+                <div className='chart_people'>
+				<form className='pat_chart_btns'>
 					<label>
 						Choose test type:
 						<select
@@ -156,23 +155,23 @@ class DocChartWrapper extends Component {
 					</label>
 				</form>
                 
-				<div className='chartContainer'>
+				<div >
                 {this.state.test === 'bloodwork' ?
                 <div>
                     
-                    <div>
-					    <button className='whiteBloodCell' onClick={this.showWhite}>
+                    <div className='doc_chart_btns'>
+					    <button className='pat_btns' onClick={this.showWhite}>
 						White Blood Cell Chart
 					    </button>
-                        <button onClick={this.showTSH}>
+                        <button className='pat_btns' onClick={this.showTSH}>
                             TSH Chart
                         </button>
-                        <button onClick={this.showCRP}>
-                            C Reactive Protein Chart
+                        <button className='pat_btns' onClick={this.showCRP}>
+                            C Reactive Protein
                         </button>
 				    </div>
                 <div>
-                {this.state.whitebloodcell ? <WhiteBloodCell id={this.state.selectedPatient.id} /> 
+                {this.state.whitebloodcell ? <WhiteBloodCell id={this.state.selectedPatient.id} firstname={this.state.selectedPatient.first_name} lastname={this.state.selectedPatient.last_name}/> 
                 : null}
                 
               
@@ -180,11 +179,11 @@ class DocChartWrapper extends Component {
                 
                 <div>
                     {this.state.TSH ? 
-                    <TSH id={this.state.selectedPatient.id}/> : null}
+                    <TSH id={this.state.selectedPatient.id} firstname={this.state.selectedPatient.first_name} lastname={this.state.selectedPatient.last_name}/> : null}
                 </div>
                 <div>
                     {this.state.CRP ?
-                    <CRP id={this.state.selectedPatient.id} /> : null}
+                    <CRP id={this.state.selectedPatient.id} firstname={this.state.selectedPatient.first_name} lastname={this.state.selectedPatient.last_name}/> : null}
                 </div>
 
                 </div>
@@ -193,29 +192,29 @@ class DocChartWrapper extends Component {
                 }
                 {this.state.test === 'vitals' ?
                 <>
-                <div>
-                    <button onClick={this.showResting}>
-                        Resting Heart Rate Chart
+                <div className='doc_chart_btns'>
+                    <button className='pat_btns' onClick={this.showResting}>
+                        Resting Heart Rate
                     </button>
-                    <button onClick={this.showTemperature}>
+                    <button className='pat_btns' onClick={this.showTemperature}>
                         Temperature
                     </button>
-                    <button onClick={this.showWeight}>
+                    <button className='pat_btns' onClick={this.showWeight}>
                         Weight
                     </button>
                 </div>
                 
                 <div>
                     {this.state.restingheartrate ? 
-                    <RestingHeartRate id={this.state.selectedPatient.id}/> : null}
+                    <RestingHeartRate id={this.state.selectedPatient.id} firstname={this.state.selectedPatient.first_name} lastname={this.state.selectedPatient.last_name}/> : null}
                 </div>
                 <div>
                     {this.state.weight ? 
-                    <Weight id={this.state.selectedPatient.id}/> : null}
+                    <Weight id={this.state.selectedPatient.id} firstname={this.state.selectedPatient.first_name} lastname={this.state.selectedPatient.last_name}/> : null}
                 </div>
                 <div>
                     {this.state.temperature ? 
-                    <Temperature id={this.state.selectedPatient.id}/> : null}
+                    <Temperature id={this.state.selectedPatient.id} firstname={this.state.selectedPatient.first_name} lastname={this.state.selectedPatient.last_name}/> : null}
                 </div>
                 </>
                 :

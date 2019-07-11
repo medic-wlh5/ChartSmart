@@ -100,7 +100,7 @@ export default class PatChartWrapper extends Component {
         <PatNav/>
         <div className='pat_chart_page'>
         <div className="chartContainer">
-        <form>
+        <form className='pat_chart_dropdown'>
           <label>
             Choose test type:
             <select

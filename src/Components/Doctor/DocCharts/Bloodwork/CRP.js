@@ -95,7 +95,7 @@ class CRP extends Component {
 
 				title: {
 					display: true,
-					text: 'C Reactive Protein',
+					text: `${this.props.firstname} ${this.props.lastname}'s C Reactive Protein`,
 					fontSize: 25,
 				},
 				legend: {
@@ -156,7 +156,7 @@ class CRP extends Component {
         
 		return (
 			<div className='graphContainer'>
-				<canvas id='myChart' ref={this.chartRef} height='300' width='700' />
+				<canvas id='myChart' ref={this.chartRef} height='225' width='600' />
 			</div>
 		);
 	}

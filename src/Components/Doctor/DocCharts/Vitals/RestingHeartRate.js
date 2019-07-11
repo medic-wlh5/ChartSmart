@@ -90,7 +90,7 @@ class RestingHeartRate extends Component {
 				//Customize chart options
 				title: {
 					display: true,
-					text: 'Resting Heart Rate',
+					text: `${this.props.firstname} ${this.props.lastname}'s Resting Heart Rate`,
 					fontSize: 25,
 				},
 				legend: {
@@ -147,7 +147,7 @@ class RestingHeartRate extends Component {
         
 		return (
 			<div className='graphContainer'>
-				<canvas id='myChart' ref={this.chartRef} height='300' width='700' />
+				<canvas id='myChart' ref={this.chartRef} height='225' width='600' />
 			</div>
 		);
 	}

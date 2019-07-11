@@ -91,7 +91,7 @@ class Temperature extends Component {
 				//Customize chart options
 				title: {
 					display: true,
-					text: 'Temperature',
+					text: `${this.props.firstname} ${this.props.lastname}'s Temperature`,
 					fontSize: 25,
 				},
 				legend: {
@@ -148,7 +148,7 @@ class Temperature extends Component {
         
 		return (
 			<div className='graphContainer'>
-				<canvas id='myChart' ref={this.chartRef} height='300' width='700' />
+				<canvas id='myChart' ref={this.chartRef} height='225' width='600' />
 			</div>
 		);
 	}

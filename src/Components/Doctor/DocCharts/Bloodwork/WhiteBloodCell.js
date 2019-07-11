@@ -92,7 +92,7 @@ class WhiteBloodCell extends Component {
 				//Customize chart options
 				title: {
 					display: true,
-					text: 'White Blood Cell Count',
+					text: `${this.props.firstname} ${this.props.lastname}'s White Blood Cell Count`,
 					fontSize: 25,
 				},
 				legend: {
@@ -151,7 +151,7 @@ class WhiteBloodCell extends Component {
         
 		return (
 			<div className='graphContainer'>
-				<canvas id='myChart' ref={this.chartRef} height='300' width='700'/>
+				<canvas id='myChart' ref={this.chartRef} height='225' width='600'/>
 			</div>
 		);
 	}

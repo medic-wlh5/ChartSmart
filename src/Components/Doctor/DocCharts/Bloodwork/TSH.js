@@ -92,7 +92,7 @@ class TSH extends Component {
 				//Customize chart options
 				title: {
 					display: true,
-					text: 'TSH',
+					text: `${this.props.firstname} ${this.props.lastname}'s TSH`,
 					fontSize: 25,
 				},
 				legend: {
@@ -150,7 +150,7 @@ class TSH extends Component {
         
 		return (
 			<div className='graphContainer'>
-				<canvas id='myChart' ref={this.chartRef} height='300' width='700' />
+				<canvas id='myChart' ref={this.chartRef} height='225' width='600' />
 			</div>
 		);
 	}

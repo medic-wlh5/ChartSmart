@@ -36,7 +36,9 @@ class PatNav extends Component {
                         <Link to='./calender' className='pat_nav_icons'>
                         <button className='pat_icons'><img src={Calender} height='60px' width='70px'></img></button>
                         </Link>
+                        <Link to='/message' className='pat_nav_icons'>
                         <button className='pat_icons'><img src={Chat} height='60px' width='70px'></img></button>
+                        </Link>
                         <button className='pat_icons'><img src={Profile} height='60px' width='60px'></img></button>
                         <Link to='/' className='pat_logout'>
 					    <button onClick={this.handleLogout}>Logout</button>

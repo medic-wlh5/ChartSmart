@@ -1,0 +1,21 @@
+.page-message{
+    height: 100vh;
+    display: flex;
+    
+}
+
+.email-form{
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.react-contact-form{
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    width: 40%;
+
+}

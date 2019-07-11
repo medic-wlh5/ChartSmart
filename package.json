@@ -6,10 +6,12 @@
     "axios": "^0.19.0",
     "bcryptjs": "^2.4.3",
     "chart.js": "^2.8.0",
+    "cypress": "^3.4.0",
     "dotenv": "^8.0.0",
     "express": "^4.17.1",
     "express-session": "^1.16.2",
     "massive": "^5.11.0",
+    "prop-types": "^15.7.2",
     "react": "^16.8.6",
     "react-big-calendar": "^0.22.0",
     "react-calendar": "^2.19.0",
@@ -20,13 +22,15 @@
     "react-scripts": "3.0.1",
     "react-toastify": "^5.3.1",
     "redux": "^4.0.1",
-    "redux-promise-middleware": "^6.1.1"
+    "redux-promise-middleware": "^6.1.1",
+    "socket.io": "^2.2.0"
   },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "test": "jest",
+    "cypress:open": "cypress open"
   },
   "eslintConfig": {
     "extends": "react-app"

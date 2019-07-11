@@ -10,9 +10,11 @@ import DocDash from './Components/Doctor/DocDash/DocDash';
 import PatDash from './Components/Patient/PatDash/PatDash';
 import NewVisit from './Components/Doctor/NewVisit/NewVisit';
 import PatChartWrapper from './Components/Patient/PatCharts/PatChartWrapper';
-import NewChart from './Components/Doctor/NewChart/NewChart'
-import DocChartWrapper from './Components/Doctor/DocCharts/DocChartWrapper'
-import Calender from './Components/Calender/Calender'
+import NewChart from './Components/Doctor/NewChart/NewChart';
+import DocChartWrapper from './Components/Doctor/DocCharts/DocChartWrapper';
+import Calender from './Components/Calender/Calender';
+import Message from './Components/Message/Message';
+
 
 export default (
 	<Switch>
@@ -28,5 +30,6 @@ export default (
 		<Route path='/newchart' component={NewChart} />
 		<Route path='/doctorviewcharts' component={DocChartWrapper} />
 		<Route path='/calender' component={Calender}/>
+		<Route path='/message' component={Message} />
 	</Switch>
 );

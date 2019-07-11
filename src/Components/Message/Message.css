@@ -8,10 +8,14 @@
     margin: auto;
     display: flex;
     flex-direction: column;
-    justify-content: space-around;
+    justify-content: center;
+    align-items: center;
 }
 
 .react-contact-form{
     display: flex;
     flex-direction: column;
+    height: 100%;
+    width: 40%;
+
 }

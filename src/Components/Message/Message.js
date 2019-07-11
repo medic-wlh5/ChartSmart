@@ -9,10 +9,6 @@ import './Message.css';
 export default class Message extends Component {
     
     render() {
-        // const emailStyle = {
-        //     display: 'flex',
-        //     flexDirection: 'column'
-        // }
         return (
             <div className="page-message">
                 <PatNav />

@@ -41,6 +41,19 @@ class TSH extends Component {
 	buildChart = () => {
 		const myChartRef = this.chartRef.current.getContext('2d');
 		const { data, average, labels } = this.props;
+
+		let gradientStroke = myChartRef.createLinearGradient(500, 0, 100, 0);
+		
+		gradientStroke.addColorStop(0, "rgba(87, 255, 80)"); //green
+		gradientStroke.addColorStop(1, "rgba(248, 94, 94)"); //red
+		
+
+		let gradientFill = myChartRef.createLinearGradient(0, 500, 0, 100);
+		gradientFill.addColorStop(0, "rgba(248, 94, 94, 0.6)"); //red
+		gradientFill.addColorStop(0.5, "rgba(87, 255, 80, 0.6)"); //green
+		gradientFill.addColorStop(1, "rgba(248, 94, 94, 0.6)"); //red
+
+
         const mappedDataValue= this.state.data.map((dataSet)=>{
             return dataSet.value
         })
@@ -59,9 +72,16 @@ class TSH extends Component {
 					{
 						label: 'TSH',
 						data: mappedDataValue,
-						fill: false,
-                        borderColor: '#6610f2',
-                        backgroundColor: "#FFF"
+						fill: true,
+						backgroundColor: gradientFill,
+						borderColor:               'white',
+						borderWidth: 2,
+						pointBorderColor:          'white',
+						pointBackgroundColor:      pointBackgroundColors,
+						pointHoverBackgroundColor: pointBackgroundColors,
+						pointHoverBorderColor:     pointBackgroundColors,
+						pointRadius: 5,
+						pointHoverRadius: 8
 					},
 					{
 					
@@ -100,13 +120,26 @@ class TSH extends Component {
                         gridLines:{
                             color: "#fff"
                         }
-                    }]
+					}],
+					xAxes:[{
+						gridLines: {
+							color: '#fff'
+						}
+					}]
                 },
                
 
                 
 			},
-        });
+		});
+		for (let i = 0; i < myLineChart.data.datasets[0].data.length; i++) {
+			if (myLineChart.data.datasets[0].data[i] >= .4 && myLineChart.data.datasets[0].data[i] <= 4  ){
+				pointBackgroundColors.push("rgba(87, 255, 80)"); //green
+			} else {
+				pointBackgroundColors.push("rgba(248, 94, 94)"); //red
+			}
+		}
+		myLineChart.update();
         
       
 	};
@@ -117,7 +150,7 @@ class TSH extends Component {
         
 		return (
 			<div className='graphContainer'>
-				<canvas id='myChart' ref={this.chartRef} />
+				<canvas id='myChart' ref={this.chartRef} height='300' width='700' />
 			</div>
 		);
 	}

@@ -163,7 +163,9 @@ handleVitalTestChange=(value)=>{
       
       <div className='chart_page'>
        <DocNav/>
+       <div className='new_chart_container'>
         <h1 className='create_title'>Create New Chart</h1>
+       <div className='new_chart_forms'>
         
         <form>
         <label>
@@ -195,8 +197,8 @@ handleVitalTestChange=(value)=>{
         null
 
         }
-
-        
+        </div>
+        </div>
       </div>
     )
   }

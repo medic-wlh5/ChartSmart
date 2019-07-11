@@ -41,6 +41,18 @@ class Temperature extends Component {
 	buildChart = () => {
 		const myChartRef = this.chartRef.current.getContext('2d');
 		const { data, average, labels } = this.props;
+
+
+		let gradientStroke = myChartRef.createLinearGradient(500, 0, 100, 0);
+		
+		gradientStroke.addColorStop(0, "rgba(87, 255, 80)"); //green
+		gradientStroke.addColorStop(1, "rgba(248, 94, 94)"); //red
+		
+
+		let gradientFill = myChartRef.createLinearGradient(0, 500, 0, 100);
+		gradientFill.addColorStop(0, "rgba(248, 94, 94, 0.6)"); //red
+		gradientFill.addColorStop(1, "rgba(87, 255, 80, 0.6)"); //green
+
         const mappedDataValue= this.state.data.map((dataSet)=>{
             return dataSet.value
         })
@@ -59,9 +71,16 @@ class Temperature extends Component {
 					{
 						label: 'Temperature',
 						data: mappedDataValue,
-						fill: false,
-                        borderColor: '#6610f2',
-                        backgroundColor: "#FFF"
+						fill: true,
+						backgroundColor: gradientFill,
+						borderColor:               'white',
+						borderWidth: 2,
+						pointBorderColor:          'white',
+						pointBackgroundColor:      pointBackgroundColors,
+						pointHoverBackgroundColor: pointBackgroundColors,
+						pointHoverBorderColor:     pointBackgroundColors,
+						pointRadius: 5,
+						pointHoverRadius: 8
 					},
 					{
 					
@@ -100,14 +119,26 @@ class Temperature extends Component {
                         gridLines:{
                             color: "#fff"
                         }
-                    }]
+					}],
+					xAxes:[{
+						gridLines: {
+							color: '#fff'
+						}
+					}]
                 },
                
 
                 
 			},
         });
-        
+        for (let i = 0; i < myLineChart.data.datasets[0].data.length; i++) {
+			if (myLineChart.data.datasets[0].data[i] >= 99.4 && myLineChart.data.datasets[0].data[i] <= 98 ){
+				pointBackgroundColors.push("rgba(248, 94, 94)");
+			} else {
+				pointBackgroundColors.push("rgba(87, 255, 80)");
+			}
+		}
+		myLineChart.update();
       
 	};
 
@@ -117,7 +148,7 @@ class Temperature extends Component {
         
 		return (
 			<div className='graphContainer'>
-				<canvas id='myChart' ref={this.chartRef} />
+				<canvas id='myChart' ref={this.chartRef} height='300' width='700' />
 			</div>
 		);
 	}

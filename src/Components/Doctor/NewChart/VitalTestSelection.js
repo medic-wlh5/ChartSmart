@@ -23,7 +23,7 @@ handleVitalTest=(e)=>{
             <option value='temperature'>Temperature</option>
         </select>
           <input onChange={this.props.handleVitalTestValue}></input>
-          <button onClick={(e)=>this.props.deleteVitalTest(e, this.props.i)}>Delete Test</button>
+          {/* <button onClick={(e)=>this.props.deleteVitalTest(e, this.props.i)}>Delete Test</button> */}
             </>
         )
     }

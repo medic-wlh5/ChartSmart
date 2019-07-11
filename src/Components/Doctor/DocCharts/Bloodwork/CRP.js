@@ -41,6 +41,20 @@ class CRP extends Component {
 	buildChart = () => {
 		const myChartRef = this.chartRef.current.getContext('2d');
 		const { data, average, labels } = this.props;
+
+		let gradientStroke = myChartRef.createLinearGradient(500, 0, 100, 0);
+		
+		gradientStroke.addColorStop(0, "rgba(87, 255, 80)"); //green
+		gradientStroke.addColorStop(0.5, "rgba(255, 255, 111)");
+		gradientStroke.addColorStop(1, "rgba(248, 94, 94)"); //red
+		
+
+		let gradientFill = myChartRef.createLinearGradient(0, 500, 0, 100);
+
+		gradientFill.addColorStop(0, "rgba(87, 255, 80, 0.6)"); //green
+		gradientFill.addColorStop(0.5, "rgba(255, 255, 111, 0.6)"); //yellow
+		gradientFill.addColorStop(1, "rgba(248, 94, 94, 0.6)"); //red
+
         const mappedDataValue= this.state.data.map((dataSet)=>{
             return dataSet.value
         })
@@ -57,11 +71,18 @@ class CRP extends Component {
 				labels: mappedDataDate,
 				datasets: [
 					{
-						label: 'C Reactive Protien',
+						label: 'C Reactive Protein',
 						data: mappedDataValue,
-						fill: false,
-                        borderColor: '#6610f2',
-                        backgroundColor: "#FFF"
+						fill: true,
+						backgroundColor: gradientFill,
+						borderColor:               'white',
+						borderWidth: 2,
+						pointBorderColor:          'white',
+						pointBackgroundColor:      pointBackgroundColors,
+						pointHoverBackgroundColor: pointBackgroundColors,
+						pointHoverBorderColor:     pointBackgroundColors,
+						pointRadius: 5,
+						pointHoverRadius: 8
 					},
 					{
 					
@@ -70,6 +91,8 @@ class CRP extends Component {
 			},
 			options: {
 				//Customize chart options
+				responsive: true,
+
 				title: {
 					display: true,
 					text: 'C Reactive Protein',
@@ -82,6 +105,7 @@ class CRP extends Component {
 					},
 				},
 				layout: {
+				
 					padding: {
 						left: 50,
 						right: 0,
@@ -100,14 +124,29 @@ class CRP extends Component {
                         gridLines:{
                             color: "#fff"
                         }
-                    }]
+					}],
+					xAxes:[{
+						gridLines: {
+							color: '#fff'
+						}
+					}]
                 },
                
 
                 
 			},
         });
-        
+		for (let i = 0; i < myLineChart.data.datasets[0].data.length; i++) {
+			if (myLineChart.data.datasets[0].data[i] < 1  ){
+				pointBackgroundColors.push("rgba(87, 255, 80)");
+			}
+			if (myLineChart.data.datasets[0].data[i] >= 1 && myLineChart.data.datasets[0].data[i] <= 3  ){
+				pointBackgroundColors.push("rgba(255, 255, 111)");
+			} else {
+				pointBackgroundColors.push("rgba(248, 94, 94)");
+			}
+		}
+		myLineChart.update();  
       
 	};
 
@@ -117,7 +156,7 @@ class CRP extends Component {
         
 		return (
 			<div className='graphContainer'>
-				<canvas id='myChart' ref={this.chartRef} />
+				<canvas id='myChart' ref={this.chartRef} height='300' width='700' />
 			</div>
 		);
 	}

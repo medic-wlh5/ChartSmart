@@ -23,7 +23,7 @@ export default class BloodTestSelection extends Component {
           <option value='c reactive protein'>C Reactive Protein</option>
           </select>
           <input onChange={this.props.handleBloodTestValue}></input>
-          <button onClick={(e)=>this.props.deleteBloodTest(e, this.props.i)}>Delete Test</button>
+          {/* <button onClick={(e)=>this.props.deleteBloodTest(e, this.props.i)}>Delete Test</button> */}
           </>
         )
     }

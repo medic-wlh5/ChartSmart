@@ -7,16 +7,47 @@ p{
     color: white
 }
 
-.new_chart_forms{
+.new_chart_container{
+    width: 900px
+}
+
+.form_contianer{
+    margin: 2em;
+}
+
+.form_options{
+    margin: 1em
+}
+
+.form_options > select {
+    width: 200px;
+    height: 30px;
+    font-size: 16px;
+    color: white;
+    margin: 1em
+}
+
+.form_options > input {
+    background: transparent;
+    border: 1px solid white;
+    width: 60px;
+    height: 30px;
+    font-size: 20px;
+    color: white;
+    border-radius: 6px
+}
+
+.new_chart_form{
     margin: 1em;
-    border: 2px dashed yellow;
+    /* border: 2px dashed yellow; */
+    height: 60px
 }
 
 .create_title{
     margin: 1em;
     font-size: 50px;
     font-weight: 100;
-    border: 2px dashed yellow;
+    /* border: 2px dashed yellow; */
     height: 100px
 }
 
@@ -36,3 +67,54 @@ select:focus {
 label{
     color: white
 }
+
+.new_chart_btns{
+    z-index: 1;
+    position: relative;
+    font-size: 15px;
+    font-family: inherit;
+    color: white;
+    height: 40px;
+    outline: none;
+    border: 2px solid white;
+    background: transparent;
+    width: 150px;
+    margin: 1em
+  }
+
+.new_chart_btns::before {
+    content: '';
+    z-index: -1;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: #FC2F70;
+    transform-origin: center right;
+    transform: scaleX(0);
+    transition: transform 0.25s ease-in-out;
+  }
+  
+  .new_chart_btns:hover {
+    cursor: pointer;
+    color: white;
+    transition: 0.15s
+  }
+  
+  .new_chart_btns:hover::before {
+    transform-origin: center left;
+    transform: scaleX(1);
+  } 
+
+  .new_chart_dropdown{
+    width: 440px;
+    border-radius: 3px;
+    overflow: hidden;
+    background: transparent;
+    display: flex;
+    margin: auto;
+    margin-top: 1.5em;
+    /* border: 1px solid white; */
+    align-items: center;
+  }

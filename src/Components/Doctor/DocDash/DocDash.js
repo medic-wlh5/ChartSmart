@@ -16,9 +16,11 @@ class DocDash extends Component {
 		return (
 			<div className='page'>
 				<DocNav/>
-				<h1 className='dash_title'>New Visit</h1>
-				<div className='container'>
-				<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+				<div className='doc_container'>
+				{/* <h1 className='dash_title'>New Visit</h1> */}
+				<h1> Welcome to ChartSmart </h1>
+				<p>To access your current patient's charts click the Chart icon to the left.</p>
+				<p>To start a new chart click the "New Visit" button below</p>
 				<Link className='clip' to='/newvisit'>
 				<button className='clip'><span>New Visit</span><img src={VisitBtn} height='40px' width='30px'></img></button>
 				</Link>

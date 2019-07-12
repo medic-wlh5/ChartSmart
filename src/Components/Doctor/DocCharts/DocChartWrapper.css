@@ -26,13 +26,13 @@
 }
 
 .view_chart_content > h4{
-    font-size: 20px;
+    font-size: 30px;
       font-weight: 200;
       color: white;
       /* position: absolute */
 }
 
-.view_chart_content > input{
+.type_field > input{
     text-decoration: none;
     display: inline-block;
     font-size: 12px;
@@ -44,8 +44,22 @@
     text-transform: none;
     border: 1px solid white;
     font-weight: bold;
-    
+    /* position: absolute */
 }
+
+/* .type_field{
+    text-decoration: none;
+    display: inline-block;
+    font-size: 12px;
+    padding: 0.5rem 0;
+    margin: auto;
+    width: 9rem;
+    background: transparent;
+    color: white;
+    text-transform: none;
+    border: 1px solid white;
+    font-weight: bold; 
+} */
 
 .chart_people > form{
     margin: auto
@@ -61,6 +75,7 @@
 .suggested_patient{
     list-style: none;
     color: white;
+    /* position: relative */
 }
 
 .doc_chart_btns{

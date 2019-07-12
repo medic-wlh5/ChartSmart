@@ -13,21 +13,23 @@
     justify-content: space-evenly;
 }
 
+.header > h1{
+    font-size: 35px;
+    font-weight: 210
+}
+
 h1{
     font-size: 25px;
     color: white;
     font-weight: 200
 }
 
-h3{
-    color: black;
-    margin: auto
-}
+
 
 h4{
-    margin: auto;
-    color: black
+    color: white;
 }
+
 
 .landing_container{
     display: flex;
@@ -35,7 +37,7 @@ h4{
    height: 300px;
    width: 350px;
    margin: auto;
-   margin-top: 9em;
+   margin-top: 6em;
    margin-right: 13em;
    /* background: white */ 
 }

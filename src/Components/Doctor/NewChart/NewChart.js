@@ -165,9 +165,9 @@ handleVitalTestChange=(value)=>{
        <DocNav/>
        <div className='new_chart_container'>
         <h1 className='create_title'>Create New Chart</h1>
-       <div className='new_chart_forms'>
+       <div className='form_contianer'>
         
-        <form>
+        <form className='new_chart_form'>
         <label>
         Choose test type:
         
@@ -179,10 +179,10 @@ handleVitalTestChange=(value)=>{
         </label>
         </form>
         {this.state.testtype === 'bloodwork' ?
-        <form>
+        <form className='form_options'>
           {mappedBloodTestTotals}
-          <button onClick={(e)=>this.handleAddBloodTest(e, this.state.bloodtest, this.state.bloodValue)}>Add more tests</button>
-          <button disabled={this.state.bloodSubmit} onClick={this.handleBloodSubmit}>Chart It Real Good</button>
+          <button className='new_chart_btns' onClick={(e)=>this.handleAddBloodTest(e, this.state.bloodtest, this.state.bloodValue)}>Add more tests</button>
+          <button className='new_chart_btns' disabled={this.state.bloodSubmit} onClick={this.handleBloodSubmit}>Submit</button>
         </form>
         :
         null

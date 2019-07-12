@@ -7,7 +7,7 @@ import axios from 'axios'
 import {clearDoctor} from '../../../redux/doctorReducer'
 
 //Icons
-import Logo from '../../../Assets/IconTrans2.png'
+import Home from '../../../Assets/HomeTrans.png'
 import Chart from '../../../Assets/ChartTrans2.png'
 import Calender from '../../../Assets/CalTrans2.png'
 import Chat from '../../../Assets/ChatTrans2.png'
@@ -26,7 +26,7 @@ class DocNav extends Component {
             <div>
                 <div className='nav_menu'>
                         <Link to='/doctordashboard' className='nav_icons'>
-                        <button className='icons'><img src={Logo} height='90px' width='100px'></img></button>
+                        <button className='icons'><img src={Home} height='60px' width='70px'></img></button>
                         </Link>
                         <Link to='/doctorviewcharts' className='nav_icons'>
                         <button className='icons'><img src={Chart} height='60px' width='70px'></img></button>

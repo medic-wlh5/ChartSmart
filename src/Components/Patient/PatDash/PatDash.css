@@ -1,0 +1,10 @@
+.pat_dash_info{
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+    align-items: center
+}
+
+.pat_dash_info > h1{
+    font-size: 60px
+}

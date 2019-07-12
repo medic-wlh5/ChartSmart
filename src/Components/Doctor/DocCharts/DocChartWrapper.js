@@ -129,6 +129,7 @@ class DocChartWrapper extends Component {
                 <div className='view_chart_content'>
                 <h1>Patient Charts</h1>
                 <h4>Type Patient Name to Select Their Charts</h4>
+                <div className='type_field'>
 				<input onChange={this.filterPatients} type='text' ref={this.suggestionInput} placeholder='Type in patient name' />
 				{
 					this.state.suggestionDropDown ?
@@ -137,7 +138,8 @@ class DocChartWrapper extends Component {
 					</div>
 					:
 					null
-				}
+                }
+                </div>
 				</div>
 
                 {this.state.selectedPatient.id ?
